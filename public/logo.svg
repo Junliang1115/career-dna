@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Career DNA — stylized double helix forming a career path loop -->
+  <!-- Outer ring — career trajectory -->
+  <circle cx="32" cy="32" r="28" stroke="#2D6A4F" stroke-width="2.5" stroke-opacity="0.25"/>
+
+  <!-- Inner double helix strands -->
+  <!-- Strand 1 — upper arc (left to right) -->
+  <path d="M18 20 Q18 10 32 10 Q46 10 46 20" stroke="#2D6A4F" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- Strand 2 — lower arc (left to right) -->
+  <path d="M18 44 Q18 54 32 54 Q46 54 46 44" stroke="#2D6A4F" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Cross connections — DNA rungs with nodes -->
+  <!-- Rung 1 — left -->
+  <line x1="18" y1="20" x2="18" y2="44" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5"/>
+  <!-- Rung 2 -->
+  <line x1="25" y1="12" x2="25" y2="52" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5"/>
+  <!-- Rung 3 — center -->
+  <line x1="32" y1="10" x2="32" y2="54" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5"/>
+  <!-- Rung 4 -->
+  <line x1="39" y1="12" x2="39" y2="52" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5"/>
+  <!-- Rung 5 — right -->
+  <line x1="46" y1="20" x2="46" y2="44" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5"/>
+
+  <!-- Career path nodes — highlight key moments -->
+  <!-- Node: discovery (top center) -->
+  <circle cx="32" cy="10" r="3.5" fill="#2D6A4F"/>
+  <circle cx="32" cy="10" r="2" fill="#2D6A4F"/>
+
+  <!-- Node: growth (right) -->
+  <circle cx="46" cy="32" r="3.5" fill="#2D6A4F"/>
+  <circle cx="46" cy="32" r="2" fill="#2D6A4F"/>
+
+  <!-- Node: convergence (bottom center) -->
+  <circle cx="32" cy="54" r="3.5" fill="#2D6A4F"/>
+  <circle cx="32" cy="54" r="2" fill="#2D6A4F"/>
+
+  <!-- Node: origin (left) -->
+  <circle cx="18" cy="32" r="3.5" fill="#2D6A4F"/>
+  <circle cx="18" cy="32" r="2" fill="#2D6A4F"/>
+
+  <!-- Subtle center dot — your core identity -->
+  <circle cx="32" cy="32" r="2" fill="#2D6A4F" fill-opacity="0.35"/>
+</svg>
