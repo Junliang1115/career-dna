@@ -5,6 +5,7 @@ import { jobs, Job, DemandLevel } from "@/lib/jobData";
 import { careerFields, positionsByField } from "@/lib/careerTaxonomy";
 import { useApp } from "@/lib/context";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 const ACCENT = "#2D6A4F";
 
@@ -80,37 +81,123 @@ export default function MapPage() {
   // ─── Skill nodes — top bridge skills that span multiple fields ───
   // Skills appear in the outer ring (r=370), connected to their relevant fields
   const { skillNodes, skillFieldMap } = useMemo(() => {
+    const bannedSkills = new Set([
+      "optimization", "research", "leadership", "communication", "management", 
+      "strategy", "problem solving", "agile", "scrum", "planning", 
+      "mentoring", "negotiation", "teamwork", "coaching", "operations", 
+      "writing", "architecture", "design", "testing", "security", "performance",
+      "analytics", "production", "infrastructure", "deployment", "troubleshooting",
+      "analysis", "problem-solving",
+
+      // New banned skills (non-technical, generic conceptual, domain, or role terms)
+      "publications", "stakeholder", "prototyping", "team lead", "real-time", 
+      "automotive", "embedded", "platform engineering", "developer experience", 
+      "automation", "dx", "regression", "team management", "data platform", 
+      "pipelines", "algorithms", "systems", "sensors", "perception", "navigation", 
+      "control", "product", "requirements", "demo", "compliance", "threat detection",
+      "incident response", "incident management", "monitoring", "reliability", 
+      "solutions", "implementation", "support", "governance", "integration"
+    ]);
+
     // Extract all skills and count how many fields they appear in
     const skillFieldCount = new Map<string, Set<string>>();
     Object.entries(positionsByField).forEach(([fieldId, positions]) => {
       const fieldNode = fieldNodes.find((n) => n.id === fieldId);
       positions.forEach((pos) => {
         pos.keywords.forEach((kw) => {
-          const skill = kw.trim();
-          if (!skill) return;
+          let skill = kw.trim().toLowerCase();
+          if (skill === "ml") skill = "machine learning";
+          if (skill === "ai") skill = "artificial intelligence";
+          if (!skill || bannedSkills.has(skill)) return;
+          
+          // Capitalize appropriately
+          skill = skill.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+          // Exception for typical casing
+          if (skill === "Machine Learning") skill = "Machine Learning";
+          
           if (!skillFieldCount.has(skill)) skillFieldCount.set(skill, new Set());
           skillFieldCount.get(skill)!.add(fieldId);
         });
       });
     });
-    // Keep skills that appear in 3+ fields (bridge skills)
-    const SKILL_RING_R = 370;
-    const CX = 500, CY = 260;
+    // Keep skills that appear in 2+ fields (bridge skills)
+    const CX = 500, CY = 400;
     const bridgeSkills = [...skillFieldCount.entries()]
-      .filter(([skill, fields]) => fields.size >= 3)
+      .filter(([skill, fields]) => fields.size >= 2)
       .sort((a, b) => b[1].size - a[1].size)
-      .slice(0, 28); // top 28 skills
+      .slice(0, 48); // top 48 skills
 
-    const nodes = bridgeSkills.map(([skill, fields], i) => {
-      const angle = -Math.PI / 2 + (i / bridgeSkills.length) * 2 * Math.PI;
-      return {
-        skill,
-        x: CX + SKILL_RING_R * Math.cos(angle),
-        y: CY + SKILL_RING_R * Math.sin(angle),
-        fieldCount: fields.size,
-        fieldIds: [...fields],
-      };
+    // Group skills by their field keys to avoid overlapping at the same centroid
+    const groups = new Map<string, Array<{ skill: string; fields: Set<string> }>>();
+    bridgeSkills.forEach(([skill, fields]) => {
+      const key = [...fields].sort().join(',');
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key)!.push({ skill, fields });
     });
+
+    const nodes: Array<{
+      skill: string;
+      x: number;
+      y: number;
+      fieldCount: number;
+      fieldIds: string[];
+    }> = [];
+
+    groups.forEach((groupItems, key) => {
+      const fieldIds = key.split(',');
+      
+      // Calculate raw centroid
+      let sumX = 0;
+      let sumY = 0;
+      let count = 0;
+      fieldIds.forEach((fieldId) => {
+        const field = fieldNodes.find((n) => n.id === fieldId);
+        if (field) {
+          sumX += field.x;
+          sumY += field.y;
+          count++;
+        }
+      });
+
+      const centerX = count > 0 ? sumX / count : CX;
+      const centerY = count > 0 ? sumY / count : CY;
+
+      // Layout nodes in a small circle around the centroid
+      const K = groupItems.length;
+      
+      groupItems.forEach((item, index) => {
+        // Deterministic offset based on skill name
+        let hash = 0;
+        for (let charIndex = 0; charIndex < item.skill.length; charIndex++) {
+          hash = item.skill.charCodeAt(charIndex) + ((hash << 5) - hash);
+        }
+        
+        let dx = 0;
+        let dy = 0;
+        if (K === 1) {
+          // Add a small pseudo-random offset so single skills aren't perfectly aligned
+          const angle = (Math.abs(hash) % 360) * (Math.PI / 180);
+          const dist = 18 + (Math.abs(hash) % 8); // 18-25px from centroid
+          dx = Math.cos(angle) * dist;
+          dy = Math.sin(angle) * dist;
+        } else {
+          // Distribute multi-skill group around centroid
+          const angle = (index / K) * 2 * Math.PI + (Math.abs(hash) % 10) * 0.1;
+          const dist = 20 + K * 1.5; // push out slightly further if more skills share this centroid
+          dx = Math.cos(angle) * dist;
+          dy = Math.sin(angle) * dist;
+        }
+
+        nodes.push({
+          skill: item.skill,
+          x: centerX + dx,
+          y: centerY + dy,
+          fieldCount: item.fields.size,
+          fieldIds,
+        });
+      });
+    });
+
     return { skillNodes: nodes, skillFieldMap: skillFieldCount };
   }, []);
 
@@ -164,17 +251,33 @@ export default function MapPage() {
 
   const fieldSkills = useMemo(() => {
     if (!selectedFieldNode) return [];
+    const bannedSkills = new Set([
+      "optimization", "research", "leadership", "communication", "management", 
+      "strategy", "problem solving", "agile", "scrum", "planning", 
+      "mentoring", "negotiation", "teamwork", "coaching", "operations", 
+      "writing", "architecture", "design", "testing", "security", "performance",
+      "analytics", "production", "infrastructure", "deployment", "troubleshooting",
+      "analysis", "problem-solving"
+    ]);
     const counts = new Map<string, number>();
     fieldJobs.forEach((job) => {
       job.skillsRequired.forEach((skill) => {
-        const key = skill.trim();
+        let key = skill.trim().toLowerCase();
+        if (key === "ml") key = "machine learning";
+        if (key === "ai") key = "artificial intelligence";
+        if (!key || bannedSkills.has(key)) return;
+        
+        // Capitalize
+        key = key.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        
         counts.set(key, (counts.get(key) || 0) + 1);
       });
     });
 
     return [...counts.entries()]
-      .filter(([, count]) => count >= 2 || counts.size <= 7)
+      .filter(([, count]) => count >= 1)
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, 25)
       .map(([skill]) => skill);
   }, [fieldJobs, selectedFieldNode]);
 
@@ -343,7 +446,7 @@ export default function MapPage() {
           - Click: zoom to field → show position labels
       ══════════════════════════════════════════ */}
       {drillLevel === 0 && (
-        <div style={{ padding: "24px 24px 0" }}>
+        <div style={{ padding: "16px 24px 0", display: "flex", flexDirection: "column", height: "calc(100vh - 56px)" }}>
           {/* Zoomed-in field panel (overlays the map) */}
           {/* Zoom overlay removed — entering Level 1 opens the field detail instead */}
 
@@ -355,39 +458,28 @@ export default function MapPage() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              height: "calc(100vh - 160px)",
+              flex: 1,
+              minHeight: 0,
             }}
           >
             <svg
-              viewBox="0 0 1000 520"
+              viewBox="0 0 1000 800"
               style={{
                 width: "100%",
                 maxWidth: 1000,
-                height: "70vh",
+                height: "100%",
+                maxHeight: "75vh",
                 display: "block",
                 margin: "0 auto",
                 opacity: 1,
                 transition: "opacity 0.2s",
               }}
             >
-              {/* Ring guides */}
-              <circle
-                cx={500}
-                cy={260}
-                r={135}
-                fill="none"
-                stroke="var(--border)"
-                strokeWidth={0.5}
-                strokeOpacity={0.12}
-                strokeDasharray="3 5"
-              />
-              <circle cx={500} cy={260} r={235} fill="none" stroke="var(--border)" strokeWidth={0.5} strokeOpacity={0.12} strokeDasharray="3 5" />
-              {/* Skill ring guide */}
-              <circle cx={500} cy={260} r={370} fill="none" stroke="var(--border)" strokeWidth={0.5} strokeOpacity={0.08} strokeDasharray="2 6" />
-              <circle cx={500} cy={260} r={6} fill="var(--border)" fillOpacity={0.35} />
+              {/* Ring guides (Semantic background) */}
+              <circle cx={500} cy={400} r={6} fill="var(--border)" fillOpacity={0.35} />
               <text
                 x={500}
-                y={256}
+                y={396}
                 textAnchor="middle"
                 fontSize={7}
                 fill="var(--text-tertiary)"
@@ -396,7 +488,7 @@ export default function MapPage() {
               >
                 CAREER DNA
               </text>
-              <text x={500} y={265} textAnchor="middle" fontSize={6} fill="var(--text-tertiary)" fillOpacity={0.35}>
+              <text x={500} y={405} textAnchor="middle" fontSize={6} fill="var(--text-tertiary)" fillOpacity={0.35}>
                 37 FIELDS · {skillNodes.length} SKILLS
               </text>
 
@@ -438,8 +530,18 @@ export default function MapPage() {
                 return node.fieldIds.map((fieldId) => {
                   const field = fieldNodes.find((n) => n.id === fieldId);
                   if (!field) return null;
-                  const midX = (node.x + field.x) / 2;
-                  const midY = (node.y + field.y) / 2 - 25;
+                  const dx = field.x - node.x;
+                  const dy = field.y - node.y;
+                  const dist = Math.hypot(dx, dy);
+                  const curveOffset = Math.min(20, dist * 0.2);
+                  let midX = (node.x + field.x) / 2;
+                  let midY = (node.y + field.y) / 2;
+                  if (dist > 1) {
+                    const px = -dy / dist;
+                    const py = dx / dist;
+                    midX += px * curveOffset;
+                    midY += py * curveOffset;
+                  }
                   const d = `M ${node.x} ${node.y} Q ${midX} ${midY} ${field.x} ${field.y}`;
                   return (
                     <path
@@ -697,6 +799,7 @@ export default function MapPage() {
               color: "var(--text-tertiary)",
               marginTop: 10,
               marginBottom: 16,
+              flexShrink: 0,
             }}
           >
             {careerType
@@ -710,7 +813,24 @@ export default function MapPage() {
           LEVEL 1 — Field Detail
       ══════════════════════════════════════════ */}
       {drillLevel === 1 && selectedFieldNode && (
-        <div style={{ padding: "16px 24px 0" }}>
+        <div style={{ padding: "16px 24px 0", position: "relative" }}>
+          <button
+            onClick={backToLevel0}
+            style={{
+              position: "absolute",
+              top: 16,
+              left: 24,
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "var(--text-secondary)",
+              display: "flex",
+              alignItems: "center",
+              padding: "8px",
+            }}
+          >
+            <ArrowLeft size={20} />
+          </button>
           {/* Field header */}
           <div style={{ textAlign: "center", marginBottom: 20 }}>
             <div
@@ -1202,7 +1322,24 @@ export default function MapPage() {
           LEVEL 2 — Job Market
       ══════════════════════════════════════════ */}
       {drillLevel === 2 && selectedPosition && selectedFieldNode && (
-        <div style={{ padding: "16px 24px 40px" }}>
+        <div style={{ padding: "16px 24px 40px", position: "relative" }}>
+          <button
+            onClick={() => drillToLevel1()}
+            style={{
+              position: "absolute",
+              top: 16,
+              left: 24,
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "var(--text-secondary)",
+              display: "flex",
+              alignItems: "center",
+              padding: "8px",
+            }}
+          >
+            <ArrowLeft size={20} />
+          </button>
           {/* Position header */}
           <div style={{ textAlign: "center", marginBottom: 24 }}>
             <p

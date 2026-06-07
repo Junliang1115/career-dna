@@ -7,74 +7,66 @@ import { careerFields, CareerField } from './careerTaxonomy';
 // ViewBox: 1000 x 520, center at (500, 260)
 // Inner ring (r=135): engineering + data clusters
 // Outer ring (r=235): all remaining clusters
-const CX = 500, CY = 260;
-const INNER_R = 135, OUTER_R = 235;
+const semanticLayout: Record<string, { x: number, y: number }> = {
+  // Core Web & Software (Center Left)
+  'fullstack': { x: 444, y: 400 },
+  'backend': { x: 388, y: 330 },
+  'frontend': { x: 388, y: 470 },
+  
+  // Design (Far Left)
+  'ui': { x: 276, y: 512 },
+  'ux': { x: 192, y: 540 },
+  'productdesign': { x: 136, y: 596 },
 
-// Ordered field IDs by cluster, starting from top, going clockwise
-const orderedFields: Array<{ id: string; ring: 'inner' | 'outer'; angleOffsetDeg: number }> = [
-  // Inner ring — Engineering (9 nodes, evenly at ~40° each, starting at 280°)
-  { id: 'frontend',      ring: 'inner', angleOffsetDeg: 290 },
-  { id: 'backend',       ring: 'inner', angleOffsetDeg: 325 },
-  { id: 'fullstack',     ring: 'inner', angleOffsetDeg: 0 },
-  { id: 'mobile',        ring: 'inner', angleOffsetDeg: 35 },
-  { id: 'games',         ring: 'inner', angleOffsetDeg: 70 },
-  { id: 'embedded',      ring: 'inner', angleOffsetDeg: 105 },
-  { id: 'devops',        ring: 'inner', angleOffsetDeg: 140 },
-  { id: 'qa',            ring: 'inner', angleOffsetDeg: 175 },
-  { id: 'platform',      ring: 'inner', angleOffsetDeg: 210 },
-  // Data (8 nodes, continuing clockwise on outer ring starts at 245°)
-  // Outer ring — Data cluster (starts at 250°)
-  { id: 'dataeng',       ring: 'outer', angleOffsetDeg: 255 },
-  { id: 'datascience',   ring: 'outer', angleOffsetDeg: 282 },
-  { id: 'mlai',          ring: 'outer', angleOffsetDeg: 309 },
-  { id: 'deeplearning',  ring: 'outer', angleOffsetDeg: 336 },
-  { id: 'nlp',           ring: 'outer', angleOffsetDeg: 363 },
-  { id: 'datavis',       ring: 'outer', angleOffsetDeg: 390 },
-  { id: 'analytics',     ring: 'outer', angleOffsetDeg: 417 },
-  // Infrastructure (3)
-  { id: 'cloud',         ring: 'outer', angleOffsetDeg: 444 },
-  { id: 'sre',           ring: 'outer', angleOffsetDeg: 471 },
-  { id: 'networking',    ring: 'outer', angleOffsetDeg: 498 },
-  // Security (3)
-  { id: 'cybersec',      ring: 'outer', angleOffsetDeg: 525 },
-  { id: 'appsec',        ring: 'outer', angleOffsetDeg: 547 },
-  { id: 'secops',        ring: 'outer', angleOffsetDeg: 569 },
-  // Product (4)
-  { id: 'product',       ring: 'outer', angleOffsetDeg: 591 },
-  { id: 'techsales',     ring: 'outer', angleOffsetDeg: 613 },
-  { id: 'techwriting',   ring: 'outer', angleOffsetDeg: 635 },
-  { id: 'techconsult',   ring: 'outer', angleOffsetDeg: 657 },
-  { id: 'engineeringm',  ring: 'outer', angleOffsetDeg: 679 },
-  // Design (3)
-  { id: 'ux',            ring: 'outer', angleOffsetDeg: 701 },
-  { id: 'ui',            ring: 'outer', angleOffsetDeg: 723 },
-  { id: 'productdesign', ring: 'outer', angleOffsetDeg: 745 },
-  // Science (4)
-  { id: 'systems',       ring: 'outer', angleOffsetDeg: 767 },
-  { id: 'csp',           ring: 'outer', angleOffsetDeg: 789 },
-  { id: 'blockchain',    ring: 'outer', angleOffsetDeg: 811 },
-  // Emerging (4)
-  { id: 'iot',           ring: 'outer', angleOffsetDeg: 833 },
-  { id: 'robotics',      ring: 'outer', angleOffsetDeg: 855 },
-  { id: 'autonomous',    ring: 'outer', angleOffsetDeg: 877 },
-];
+  // Product & Management (Bottom Left)
+  'engineeringm': { x: 360, y: 540 },
+  'product': { x: 304, y: 610 },
+  'techsales': { x: 220, y: 666 },
+  'techwriting': { x: 164, y: 708 },
+  'techconsult': { x: 304, y: 722 },
 
-// Build id → position map
-const positionMap = new Map(orderedFields.map(f => [f.id, f]));
+  // Mobile & Games (Top Left)
+  'mobile': { x: 290, y: 274 },
+  'games': { x: 192, y: 204 },
 
-function degToRad(deg: number): number {
-  return (deg * Math.PI) / 180;
-}
+  // Infra & Platform (Top)
+  'devops': { x: 500, y: 260 },
+  'platform': { x: 430, y: 176 },
+  'sre': { x: 542, y: 162 },
+  'cloud': { x: 570, y: 78 },
+  'networking': { x: 668, y: 106 },
+
+  // Security (Top Right)
+  'appsec': { x: 682, y: 218 },
+  'cybersec': { x: 752, y: 148 },
+  'secops': { x: 836, y: 190 },
+
+  // Data & AI (Center Right & Far Right)
+  'dataeng': { x: 584, y: 344 },
+  'datascience': { x: 696, y: 330 },
+  'analytics': { x: 626, y: 428 },
+  'datavis': { x: 542, y: 484 },
+  'mlai': { x: 808, y: 316 },
+  'nlp': { x: 864, y: 386 },
+  'deeplearning': { x: 920, y: 274 },
+
+  // Hardware, Systems, Emerging (Bottom Right)
+  'embedded': { x: 528, y: 568 },
+  'systems': { x: 584, y: 624 },
+  'iot': { x: 668, y: 680 },
+  'robotics': { x: 752, y: 596 },
+  'autonomous': { x: 864, y: 638 },
+  'qa': { x: 444, y: 652 },
+
+  // Science & Blockchain (Bottom / Far Bottom Right)
+  'csp': { x: 752, y: 498 },
+  'blockchain': { x: 500, y: 750 }
+};
 
 function getNodePos(id: string): { x: number; y: number } {
-  const entry = positionMap.get(id);
-  if (!entry) return { x: CX, y: CY };
-  const r = entry.ring === 'inner' ? INNER_R : OUTER_R;
-  const rad = degToRad(entry.angleOffsetDeg);
-  return {
-    x: CX + r * Math.cos(rad),
-    y: CY + r * Math.sin(rad),
-  };
+  const pos = semanticLayout[id];
+  if (!pos) return { x: 500, y: 400 };
+  return pos;
 }
 
 export interface FieldNode {
@@ -97,7 +89,6 @@ export interface FieldEdge {
 
 export const fieldNodes: FieldNode[] = careerFields.map(field => {
   const pos = getNodePos(field.id);
-  const entry = positionMap.get(field.id);
   return {
     id: field.id,
     label: field.label,
@@ -106,7 +97,7 @@ export const fieldNodes: FieldNode[] = careerFields.map(field => {
     radius: 6,
     color: field.color,
     kind: 'field',
-    ring: entry?.ring ?? 'outer',
+    ring: 'outer',
   };
 });
 
