@@ -779,3 +779,88 @@ export function matchJobsToType(type: string, userSkills: string[], userCourses:
   });
   return scored.sort((a, b) => b.score - a.score).slice(0, 3).map(s => s.job);
 }
+
+// ─── Job Matching Interface & Scoring ───────────────────────────────────────
+
+export interface JobMatch {
+  job: Job;
+  totalScore: number;       // 0-100
+  personalityScore: number; // 0-40
+  skillScore: number;       // 0-30
+  courseScore: number;      // 0-30
+  personalityFit: boolean;    // true if job.typeFit includes their type
+  skillsCovered: string[];
+  skillsMissing: string[];
+  coursesCovered: string[];
+  coursesMissing: string[];
+}
+
+/**
+ * Fuzzy match: true if skill is found as substring in list item OR vice versa.
+ */
+function fuzzyMatch(skill: string, list: string[]): boolean {
+  const skillLower = skill.toLowerCase();
+  return list.some(s => s.toLowerCase().includes(skillLower) || skillLower.includes(s.toLowerCase()));
+}
+
+/**
+ * Returns ALL jobs scored and ranked by total match score.
+ * Scoring breakdown (max 100):
+ *   - Personality fit: +40 if job.typeFit includes type, else 0
+ *   - Skill overlap (30pts): (overlap / job.skillsRequired.length) * 30
+ *     overlap = skillsRequired matched by userSkills OR userCourses
+ *   - Course coverage (30pts): (courseOverlap / job.skillsRequired.length) * 30
+ *     courseOverlap = skillsRequired matched ONLY by userCourses
+ */
+export function calculateJobMatches(
+  type: string,
+  userSkills: string[],
+  userCourses: string[]
+): JobMatch[] {
+  const allUserItems = [...userSkills, ...userCourses];
+
+  return jobs.map(job => {
+    // Personality score (binary 40 or 0)
+    const personalityFit = job.typeFit.includes(type);
+    const personalityScore = personalityFit ? 40 : 0;
+
+    // Determine which skills are covered by userSkills+userCourses (skill match)
+    const skillsCovered: string[] = [];
+    const skillsMissing: string[] = [];
+    for (const skill of job.skillsRequired) {
+      if (fuzzyMatch(skill, allUserItems)) {
+        skillsCovered.push(skill);
+      } else {
+        skillsMissing.push(skill);
+      }
+    }
+
+    // Determine which skills are covered ONLY by userCourses (course match)
+    const coursesCovered: string[] = [];
+    const coursesMissing: string[] = [];
+    for (const skill of job.skillsRequired) {
+      if (fuzzyMatch(skill, userCourses)) {
+        coursesCovered.push(skill);
+      } else {
+        coursesMissing.push(skill);
+      }
+    }
+
+    const skillScore = Math.round((skillsCovered.length / job.skillsRequired.length) * 30);
+    const courseScore = Math.round((coursesCovered.length / job.skillsRequired.length) * 30);
+    const totalScore = personalityScore + skillScore + courseScore;
+
+    return {
+      job,
+      totalScore,
+      personalityScore,
+      skillScore,
+      courseScore,
+      personalityFit,
+      skillsCovered,
+      skillsMissing,
+      coursesCovered,
+      coursesMissing,
+    };
+  }).sort((a, b) => b.totalScore - a.totalScore);
+}
