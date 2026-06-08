@@ -1,0 +1,4633 @@
+{
+  "description": "Malaysian University CS/Computing Course Database \u2014 sourced from official university curriculum documents",
+  "sources": {
+    "um": "https://fsktm.um.edu.my/bachelor-of-computer-science-artificial-intelligence",
+    "upm": "https://akademik.upm.edu.my/upload/dokumen/20251001094438Fakulti_Sains_Komputer_dan_Teknologi_Maklumat_Sesi_2025-2026_2.9.2025.pdf"
+  },
+  "universities": [
+    {
+      "universityId": "um",
+      "universityName": "Universiti Malaya (UM)",
+      "programs": [
+        {
+          "id": "um-cs-ai",
+          "name": "Bachelor of Computer Science (Artificial Intelligence) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 128,
+          "source": "https://fsktm.um.edu.my/bachelor-of-computer-science-artificial-intelligence",
+          "courses": [
+            {
+              "name": "Computing Mathematics I",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "name": "Computer Systems and Organization",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Information Systems",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Data Structure",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Computer System Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Artificial Intelligence",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "name": "Network Technology Foundation",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "name": "Project Management",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Database",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "name": "Software Modeling",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Probability and Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "name": "Algorithm Design and Analysis",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Industrial Training",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "name": "Academic Project I",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "name": "Academic Project II",
+              "year": 4,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "name": "Robotics",
+              "year": 3,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "name": "Cognitive Science",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Image Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Natural Language Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Machine Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Artificial Neural Network",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Fuzzy Logic",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Expert Systems and Logic Programming",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Computer Vision",
+              "year": 4,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Data Mining",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "name": "Robotics",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Cognitive Science",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Image Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Natural Language Processing",
+              "year": 3,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "Machine Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Artificial Neural Network",
+              "year": 4,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Fuzzy Logic",
+              "year": 4,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Expert Systems and Logic Programming",
+              "year": 4,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Computer Vision",
+              "year": 4,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Data Mining",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            }
+          ]
+        },
+        {
+          "id": "um-cs-csn",
+          "name": "Bachelor of Computer Science (Computer System and Network) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 128,
+          "source": "https://fsktm.um.edu.my/bachelor-of-computer-science-computer-system-and-network",
+          "note": "Years 3-4 specialization courses require JS-rendered page access",
+          "courses": [
+            {
+              "name": "Computing Mathematics I",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "name": "Computer Systems and Organization",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Information Systems",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Data Structure",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Computer System Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Artificial Intelligence",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "name": "Network Technology Foundation",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "name": "Project Management",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Database",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "name": "Software Modeling",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Probability and Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "name": "Algorithm Design and Analysis",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Network Security",
+              "year": 3,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Cloud Computing",
+              "year": 3,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Wireless and Mobile Networks",
+              "year": 3,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Distributed Systems",
+              "year": 3,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Network Management",
+              "year": 3,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Cyber Security",
+              "year": 4,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Internet of Things",
+              "year": 4,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "Computer Forensics",
+              "year": 4,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "Cryptography",
+              "year": 4,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Network Performance Analysis",
+              "year": 4,
+              "category": "networking",
+              "isCore": false
+            }
+          ]
+        },
+        {
+          "id": "um-cs-ds",
+          "name": "Bachelor of Computer Science (Data Science) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 128,
+          "source": "https://fsktm.um.edu.my/bachelor-of-computer-science-data-science",
+          "note": "SAS-endorsed program. Years 3-4 specialization courses require JS-rendered page access",
+          "courses": [
+            {
+              "name": "Computing Mathematics I",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "name": "Computer Systems and Organization",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Information Systems",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Data Structure",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Computer System Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Machine Learning",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "name": "Introduction to Data Science",
+              "year": 1,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "name": "Project Management",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Database",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "name": "Software Modeling",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Probability and Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "name": "Network Technology Foundation",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "name": "Data Science Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "name": "Data Science Industrial Training",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "name": "Deep Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Big Data Analytics",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "name": "Text Mining and Natural Language Processing",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "name": "Data Visualization",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "name": "Predictive Analytics",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "name": "Statistical Learning",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "name": "Data Engineering",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "name": "Business Analytics",
+              "year": 4,
+              "category": "business-systems",
+              "isCore": false
+            },
+            {
+              "name": "Time Series Analysis",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "name": "Recommender Systems",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            }
+          ]
+        },
+        {
+          "id": "um-cs-is",
+          "name": "Bachelor of Computer Science (Information Systems) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 128,
+          "source": "https://fsktm.um.edu.my/bachelor-of-computer-science-information-systems",
+          "note": "Years 3-4 specialization courses require JS-rendered page access",
+          "courses": [
+            {
+              "name": "Computing Mathematics I",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "name": "Computer Systems and Organization",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Information Systems",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Data Structure",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Computer System Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Artificial Intelligence",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "name": "Network Technology Foundation",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "name": "Project Management",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Database",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "name": "Software Modeling",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Probability and Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "name": "Algorithm Design and Analysis",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Enterprise Resource Planning",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": false
+            },
+            {
+              "name": "Business Intelligence",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": false
+            },
+            {
+              "name": "Electronic Commerce",
+              "year": 3,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "Knowledge Management",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": false
+            },
+            {
+              "name": "Information Systems Audit",
+              "year": 3,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "Customer Relationship Management",
+              "year": 4,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "Supply Chain Management",
+              "year": 4,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "Digital Transformation",
+              "year": 4,
+              "category": "business-systems",
+              "isCore": false
+            },
+            {
+              "name": "IT Governance",
+              "year": 4,
+              "category": "business-systems",
+              "isCore": false
+            },
+            {
+              "name": "Business Process Modeling",
+              "year": 4,
+              "category": "business-systems",
+              "isCore": false
+            }
+          ]
+        },
+        {
+          "id": "um-cs-mm",
+          "name": "Bachelor of Computer Science (Multimedia Computing) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 128,
+          "source": "https://fsktm.um.edu.my/bachelor-of-computer-science-multimedia-computing",
+          "note": "Years 3-4 specialization courses require JS-rendered page access",
+          "courses": [
+            {
+              "name": "Computing Mathematics I",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "name": "Computer Systems and Organization",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Information Systems",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Fundamental of Multimedia",
+              "year": 1,
+              "category": "graphics-multimedia",
+              "isCore": true
+            },
+            {
+              "name": "Data Structure",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Data Communication and Networking",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "name": "Project Management",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Database",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "name": "Interactive Design",
+              "year": 2,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "name": "Probability and Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "name": "Open Source Programming: Application and Technology",
+              "year": 2,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "name": "System Analysis, Modeling and Design",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Information System Control and Security",
+              "year": 2,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "name": "Computer Graphics",
+              "year": 3,
+              "category": "graphics-multimedia",
+              "isCore": false
+            },
+            {
+              "name": "Game Development",
+              "year": 3,
+              "category": "graphics-multimedia",
+              "isCore": false
+            },
+            {
+              "name": "Virtual and Augmented Reality",
+              "year": 3,
+              "category": "graphics-multimedia",
+              "isCore": false
+            },
+            {
+              "name": "Digital Image Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "name": "Animation and Visual Effects",
+              "year": 3,
+              "category": "graphics-multimedia",
+              "isCore": false
+            },
+            {
+              "name": "Audio and Video Technology",
+              "year": 4,
+              "category": "graphics-multimedia",
+              "isCore": false
+            },
+            {
+              "name": "Multimedia Systems Design",
+              "year": 4,
+              "category": "graphics-multimedia",
+              "isCore": false
+            },
+            {
+              "name": "Visual Communication",
+              "year": 4,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "3D Modeling and Animation",
+              "year": 4,
+              "category": "graphics-multimedia",
+              "isCore": false
+            },
+            {
+              "name": "Multimedia Content Management",
+              "year": 4,
+              "category": "graphics-multimedia",
+              "isCore": false
+            }
+          ]
+        },
+        {
+          "id": "um-cs-se",
+          "name": "Bachelor of Computer Science (Software Engineering) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 128,
+          "source": "https://fsktm.um.edu.my/bachelor-of-computer-science-software-engineering",
+          "note": "Years 3-4 specialization courses require JS-rendered page access",
+          "courses": [
+            {
+              "name": "Computing Mathematics I",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "name": "Computer Systems and Organization",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Information Systems",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Data Structure",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Computer System Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "name": "Fundamentals of Artificial Intelligence",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "name": "Network Technology Foundation",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "name": "Project Management",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Database",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "name": "Software Modeling",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "name": "Probability and Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "name": "Algorithm Design and Analysis",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "name": "Software Testing and Quality Assurance",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "name": "DevOps and Continuous Deployment",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "name": "Agile Software Development",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "name": "Software Architecture",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "name": "Human-Computer Interaction",
+              "year": 3,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "name": "Mobile Application Development",
+              "year": 4,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "name": "Cloud-Native Development",
+              "year": 4,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "name": "Software Project Management",
+              "year": 4,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "name": "Microservices Architecture",
+              "year": 4,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "name": "Software Security Engineering",
+              "year": 4,
+              "category": "software-engineering",
+              "isCore": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "universityId": "upm",
+      "universityName": "Universiti Putra Malaysia (UPM)",
+      "programs": [
+        {
+          "id": "upm-cs",
+          "name": "Bachelor in Computer Science with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 126,
+          "courses": [
+            {
+              "code": "SSW3200",
+              "name": "Digital Entrepreneurship",
+              "year": 1,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "FEM2313",
+              "name": "Integrity and Anti-corruption",
+              "year": 1,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "PRT2009",
+              "name": "Agriculture and Life",
+              "year": 1,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CCS3100",
+              "name": "Problem Solving and Programming Concepts",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3200",
+              "name": "Computer Organization and Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CND3200",
+              "name": "Computer Network and Communication",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CCS3003",
+              "name": "Discrete Structures",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CCS3101",
+              "name": "Object-Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "SSW4202",
+              "name": "Ethics in Computing",
+              "year": 1,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CCS3104",
+              "name": "Advanced Programming",
+              "year": 2,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3202",
+              "name": "Data Structures and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CCS3400",
+              "name": "Database Principles",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CCS3402",
+              "name": "Database Application Development",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CCS3300",
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": "CCS3700",
+              "name": "Embedded Systems Programming",
+              "year": 2,
+              "category": "embedded-systems",
+              "isCore": true
+            },
+            {
+              "code": "SSW3001",
+              "name": "Software Engineering",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CCS3600",
+              "name": "Artificial Intelligence",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "CCS4202",
+              "name": "Design and Analysis of Algorithms",
+              "year": 3,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CCS4500",
+              "name": "Computer Security",
+              "year": 3,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": "SSW3307",
+              "name": "User Experience and User Interface",
+              "year": 3,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "code": "SSW3401",
+              "name": "Mobile Application Development",
+              "year": 3,
+              "category": "mobile-development",
+              "isCore": true
+            },
+            {
+              "code": "CCS4949",
+              "name": "Bachelor Project",
+              "year": 4,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "CCS4901",
+              "name": "Industrial Training",
+              "year": 4,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CCS4200",
+              "name": "Compiler Design",
+              "year": 3,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "code": "CCS4300",
+              "name": "Operating System Design",
+              "year": 4,
+              "category": "operating-systems",
+              "isCore": false
+            },
+            {
+              "code": "CCS4400",
+              "name": "Advanced Database Systems",
+              "year": 4,
+              "category": "database",
+              "isCore": false
+            },
+            {
+              "code": "CCS4402",
+              "name": "Database Administration",
+              "year": 4,
+              "category": "database",
+              "isCore": false
+            },
+            {
+              "code": "CCS4404",
+              "name": "Business Analytics",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": "CCS4406",
+              "name": "Big Data Analytics",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": "CCS4502",
+              "name": "Cryptography",
+              "year": 4,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": "CCS4504",
+              "name": "Computer Forensics",
+              "year": 4,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": "CCS4506",
+              "name": "Database Security",
+              "year": 4,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": "CCS4600",
+              "name": "Data Mining",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": "CCS4602",
+              "name": "Machine Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": "CCS4604",
+              "name": "Knowledge Based System",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": "CCS4700",
+              "name": "Embedded Systems Development",
+              "year": 3,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "code": "CCS4702",
+              "name": "Robotic System Development",
+              "year": 4,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "code": "CCS4704",
+              "name": "Internet of Things and Applications",
+              "year": 3,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "code": "CND4400",
+              "name": "Distributed Systems",
+              "year": 4,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "code": "CND4503",
+              "name": "Vulnerability Assessment and Penetration Testing",
+              "year": 4,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": "CND4504",
+              "name": "Blockchain Technology",
+              "year": 4,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "code": "CSM3206",
+              "name": "Natural Language Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": "SSW3201",
+              "name": "Statistics for Computer Science",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": false
+            },
+            {
+              "code": "SSW3310",
+              "name": "Software Project Management",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "code": "SSW4357",
+              "name": "Application Development in Cloud Computing",
+              "year": 4,
+              "category": "cloud-devops",
+              "isCore": false
+            }
+          ]
+        },
+        {
+          "id": "upm-cs-mm",
+          "name": "Bachelor in Computer Science (Multimedia Computing) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 126,
+          "courses": [
+            {
+              "code": "CCS3100",
+              "name": "Problem Solving and Programming Concepts",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3101",
+              "name": "Object-Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3003",
+              "name": "Discrete Structures",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CCS3200",
+              "name": "Computer Organization and Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CND3200",
+              "name": "Computer Network and Communication",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CSM3001",
+              "name": "Multimedia Technology",
+              "year": 1,
+              "category": "graphics-multimedia",
+              "isCore": true
+            },
+            {
+              "code": "CSM3002",
+              "name": "Mathematics for Multimedia Computing",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "SSW4202",
+              "name": "Ethics in Computing",
+              "year": 1,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CCS3104",
+              "name": "Advanced Programming",
+              "year": 2,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3202",
+              "name": "Data Structures and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CCS3400",
+              "name": "Database Principles",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CCS3300",
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": "SSW3001",
+              "name": "Software Engineering",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CCS3600",
+              "name": "Artificial Intelligence",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "CCS3700",
+              "name": "Embedded Systems Programming",
+              "year": 2,
+              "category": "embedded-systems",
+              "isCore": true
+            },
+            {
+              "code": "CCS3402",
+              "name": "Database Application Development",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CCS4202",
+              "name": "Design and Analysis of Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CCS4500",
+              "name": "Computer Security",
+              "year": 2,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": "CSM3204",
+              "name": "Computer Graphics and Rendering",
+              "year": 2,
+              "category": "graphics-multimedia",
+              "isCore": true
+            },
+            {
+              "code": "CSM3401",
+              "name": "Interactive Multimedia Web Development",
+              "year": 2,
+              "category": "web-development",
+              "isCore": true
+            },
+            {
+              "code": "CSM3601",
+              "name": "Problem Solving Using Artificial Intelligence",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "SSW3307",
+              "name": "User Experience and User Interface",
+              "year": 3,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "code": "SSW3200",
+              "name": "Digital Entrepreneurship",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "SSW3401",
+              "name": "Mobile Application Development",
+              "year": 3,
+              "category": "mobile-development",
+              "isCore": true
+            },
+            {
+              "code": "CSM3206",
+              "name": "Natural Language Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "CSM3315",
+              "name": "Augmented Reality Application",
+              "year": 3,
+              "category": "graphics-multimedia",
+              "isCore": true
+            },
+            {
+              "code": "CSM3207",
+              "name": "Virtual Reality",
+              "year": 3,
+              "category": "graphics-multimedia",
+              "isCore": true
+            },
+            {
+              "code": "CSM4300",
+              "name": "Multimedia Project Management",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CSM4317",
+              "name": "Computer Vision",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "CSM4949A",
+              "name": "Bachelor Project (Part A)",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "CCS4949",
+              "name": "Bachelor Project (Part B)",
+              "year": 4,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "CCS4901",
+              "name": "Industrial Training",
+              "year": 4,
+              "category": "professional",
+              "isCore": true
+            }
+          ]
+        },
+        {
+          "id": "upm-cs-cn",
+          "name": "Bachelor in Computer Science (Computer Network) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 126,
+          "courses": [
+            {
+              "code": "CCS3100",
+              "name": "Problem Solving and Programming Concepts",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3101",
+              "name": "Object-Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3003",
+              "name": "Discrete Structures",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CCS3200",
+              "name": "Computer Organization and Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CND3101",
+              "name": "Python Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CND3200",
+              "name": "Computer Network and Communication",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "SSW4202",
+              "name": "Ethics in Computing",
+              "year": 1,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CCS3202",
+              "name": "Data Structures and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CCS3400",
+              "name": "Database Principles",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CCS3300",
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": "CCS3600",
+              "name": "Artificial Intelligence",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "SSW3001",
+              "name": "Software Engineering",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CCS3402",
+              "name": "Database Application Development",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CCS3104",
+              "name": "Advanced Programming",
+              "year": 2,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CNS3201",
+              "name": "Internetworking Technology",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CND3300",
+              "name": "System and Network Administration",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CCS4202",
+              "name": "Design and Analysis of Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CND4400",
+              "name": "Distributed Systems",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CND3202",
+              "name": "Distributed and Parallel Computing",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CND3100",
+              "name": "Network Programming",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CND4300",
+              "name": "Software Defined Network",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CND4200",
+              "name": "Enterprise Network Design and Management",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CND4201",
+              "name": "Wireless and Mobile Network",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CND4500",
+              "name": "Network Security",
+              "year": 3,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": "CND3400",
+              "name": "Mobile Application",
+              "year": 3,
+              "category": "mobile-development",
+              "isCore": true
+            },
+            {
+              "code": "SSW3307",
+              "name": "User Interface and User Experience",
+              "year": 3,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "code": "CND4949A",
+              "name": "Bachelor Project (Part A)",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "CCS4949",
+              "name": "Bachelor Project (Part B)",
+              "year": 4,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "CCS4901",
+              "name": "Industrial Training",
+              "year": 4,
+              "category": "professional",
+              "isCore": true
+            }
+          ]
+        },
+        {
+          "id": "upm-se",
+          "name": "Bachelor in Software Engineering with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 126,
+          "courses": [
+            {
+              "code": "CCS3100",
+              "name": "Problem Solving and Programming Concepts",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3101",
+              "name": "Object-Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CCS3003",
+              "name": "Discrete Structures",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CCS3200",
+              "name": "Computer Organization and Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "SSW3201",
+              "name": "Statistics for Computer Science",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "SSW3301",
+              "name": "Software Requirements Engineering",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "SSW4202",
+              "name": "Ethics in Computing",
+              "year": 1,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CCS3202",
+              "name": "Data Structures and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CCS3400",
+              "name": "Database Principles",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CCS3300",
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": "SSW3302",
+              "name": "Software Architecture and Design",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "SSW3305",
+              "name": "Software Testing",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "SSW3307",
+              "name": "User Experience and User Interface",
+              "year": 2,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "code": "CND3200",
+              "name": "Computer Network and Communication",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "SSW4201",
+              "name": "Software Development Methodology",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "SSW3310",
+              "name": "Software Project Management",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "SSW3400",
+              "name": "Software Engineering Team Project",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "SSW3200",
+              "name": "Digital Entrepreneurship",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "SSW4356",
+              "name": "Secure Software Development",
+              "year": 3,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": "SSW4351",
+              "name": "Software Maintenance and Evolution",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "SSW4949A",
+              "name": "Bachelor Project (Part A)",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "SSW4949",
+              "name": "Bachelor Project (Part B)",
+              "year": 4,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "SSW4901",
+              "name": "Industrial Training",
+              "year": 4,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "SSW3308",
+              "name": "Web Application Development",
+              "year": 3,
+              "category": "web-development",
+              "isCore": false
+            },
+            {
+              "code": "SSW3401",
+              "name": "Mobile Application Development",
+              "year": 3,
+              "category": "mobile-development",
+              "isCore": false
+            },
+            {
+              "code": "SSW3402",
+              "name": "Enterprise Systems Development",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "code": "SSW4303",
+              "name": "Formal Methods in Software Development",
+              "year": 4,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "code": "SSW4353",
+              "name": "Component-Based Software Development",
+              "year": 4,
+              "category": "software-engineering",
+              "isCore": false
+            },
+            {
+              "code": "SSW4355",
+              "name": "Real-Time Software Engineering",
+              "year": 4,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "code": "SSW4357",
+              "name": "Application Development in Cloud Computing",
+              "year": 4,
+              "category": "cloud-devops",
+              "isCore": false
+            },
+            {
+              "code": "SSW4401",
+              "name": "Electronic Commerce",
+              "year": 4,
+              "category": "web-development",
+              "isCore": false
+            },
+            {
+              "code": "CCS4602",
+              "name": "Machine Learning",
+              "year": 4,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": "CCS4600",
+              "name": "Data Mining",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": "CCS4704",
+              "name": "Internet of Things and Applications",
+              "year": 4,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "code": "CND3101",
+              "name": "Python Programming",
+              "year": 4,
+              "category": "programming",
+              "isCore": false
+            },
+            {
+              "code": "CND3102",
+              "name": "C++ Programming",
+              "year": 4,
+              "category": "programming",
+              "isCore": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "universityId": "usm",
+      "universityName": "Universiti Sains Malaysia (USM)",
+      "type": "public",
+      "faculty": "School of Computer Sciences",
+      "programs": [
+        {
+          "id": "usm-cs-ic",
+          "name": "Bachelor of Computer Science (Honours) \u2014 Intelligent Computing",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 132,
+          "source": "https://cs.usm.my/images/Pdf/programbook__BACHELOR_OF_COMPUTER_SCIENCE_HONOURS.pdf",
+          "courses": [
+            {
+              "code": "CPT111",
+              "name": "Principles of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CPT112",
+              "name": "Discrete Structures",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CPT113",
+              "name": "Programming Methodology and Data Structures",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CPT115",
+              "name": "Mathematical Methods for Computer Science",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CPT212",
+              "name": "Design and Analysis of Algorithms",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CPC151",
+              "name": "Fundamentals of Logic and Artificial Intelligence",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "CMT221",
+              "name": "Database Organisations and Design",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CPT113",
+              "name": "Programming Methodology and Data Structures",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CST131",
+              "name": "Computer Organisation",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CST232",
+              "name": "Operating Systems",
+              "year": 1,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": "CST235",
+              "name": "Principles of Computer Networks and Information Security",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CSE241",
+              "name": "Foundations of Software Engineering",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CSE241",
+              "name": "Foundations of Software Engineering",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CAT201",
+              "name": "Integrated Software Development Workshop",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CST235",
+              "name": "Principles of Computer Networks and Information Security",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CPT212",
+              "name": "Design and Analysis of Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CAT302",
+              "name": "Industrial Training",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CAT304",
+              "name": "Group Innovation Project and Study for Sustainability",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CPC251",
+              "name": "Machine Learning and Computational Intelligence",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "CPT316",
+              "name": "Programming Language Implementation and Paradigms",
+              "year": 3,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CAT402",
+              "name": "Professional and Technopreneurship Development",
+              "year": 4,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CPT411",
+              "name": "Automata Theory and Formal Languages",
+              "year": 3,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CST435",
+              "name": "Principles of Parallel Computing",
+              "year": 3,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CAT405",
+              "name": "Intelligent Computing Major Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "CPC351",
+              "name": "Principles of Data Analytics",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": "CPC353",
+              "name": "Natural Language Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": "CPC451",
+              "name": "Big Data Technologies and Management",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": "CMT321",
+              "name": "Management and Engineering of Databases",
+              "year": 4,
+              "category": "database",
+              "isCore": false
+            },
+            {
+              "code": "CPC355",
+              "name": "Computer Vision and Robotics",
+              "year": 4,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": "CMT426",
+              "name": "Business Intelligence and Analytics",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": "CMT427",
+              "name": "Information Storage and Retrieval",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            }
+          ]
+        },
+        {
+          "id": "usm-cs-ci",
+          "name": "Bachelor of Computer Science (Honours) \u2014 Computing Infrastructure",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 132,
+          "source": "https://cs.usm.my/images/Pdf/programbook__BACHELOR_OF_COMPUTER_SCIENCE_HONOURS.pdf",
+          "note": "Same common core as Intelligent Computing; differs in Major Core",
+          "courses": [
+            {
+              "code": "CPT111",
+              "name": "Principles of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CPT112",
+              "name": "Discrete Structures",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CPT113",
+              "name": "Programming Methodology and Data Structures",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CPT115",
+              "name": "Mathematical Methods for Computer Science",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CPT212",
+              "name": "Design and Analysis of Algorithms",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CPC151",
+              "name": "Fundamentals of Logic and Artificial Intelligence",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "CMT221",
+              "name": "Database Organisations and Design",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CPT113",
+              "name": "Programming Methodology and Data Structures",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CST131",
+              "name": "Computer Organisation",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CST232",
+              "name": "Operating Systems",
+              "year": 1,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": "CST235",
+              "name": "Principles of Computer Networks and Information Security",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CSE241",
+              "name": "Foundations of Software Engineering",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CSE241",
+              "name": "Foundations of Software Engineering",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CAT201",
+              "name": "Integrated Software Development Workshop",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CST235",
+              "name": "Principles of Computer Networks and Information Security",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CPT212",
+              "name": "Design and Analysis of Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CAT302",
+              "name": "Industrial Training",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CAT304",
+              "name": "Group Innovation Project and Study for Sustainability",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CPT316",
+              "name": "Programming Language Implementation and Paradigms",
+              "year": 3,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CST236",
+              "name": "Digital Systems Design",
+              "year": 3,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CST431",
+              "name": "Systems Security and Protection",
+              "year": 3,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": "CST435",
+              "name": "Principles of Parallel Computing",
+              "year": 3,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CAT403",
+              "name": "Computing Infrastructure Major Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "CAT402",
+              "name": "Professional and Technopreneurship Development",
+              "year": 4,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CST330",
+              "name": "Network Programming",
+              "year": 3,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "code": "CST337",
+              "name": "Network Configuration and Protocols",
+              "year": 3,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "code": "CST432",
+              "name": "Microprocessors and Embedded Systems",
+              "year": 3,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "code": "CPC355",
+              "name": "Computer Vision and Robotics",
+              "year": 4,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": "CST338",
+              "name": "Network and Communication Security",
+              "year": 4,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": "CST434",
+              "name": "Wireless Networks and Mobile Computing",
+              "year": 4,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "code": "CST437",
+              "name": "Distributed and Cloud Computing",
+              "year": 4,
+              "category": "cloud-computing",
+              "isCore": false
+            }
+          ]
+        },
+        {
+          "id": "usm-cs-se",
+          "name": "Bachelor of Computer Science (Honours) \u2014 Software Engineering",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 132,
+          "source": "https://cs.usm.my/images/Pdf/programbook__BACHELOR_OF_COMPUTER_SCIENCE_HONOURS.pdf",
+          "note": "Same common core as Intelligent Computing; differs in Major Core",
+          "courses": [
+            {
+              "code": "CPT111",
+              "name": "Principles of Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": "CPT112",
+              "name": "Discrete Structures",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CPT113",
+              "name": "Programming Methodology and Data Structures",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CPT115",
+              "name": "Mathematical Methods for Computer Science",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": "CPT212",
+              "name": "Design and Analysis of Algorithms",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CPC151",
+              "name": "Fundamentals of Logic and Artificial Intelligence",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": "CMT221",
+              "name": "Database Organisations and Design",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": "CPT113",
+              "name": "Programming Methodology and Data Structures",
+              "year": 1,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CST131",
+              "name": "Computer Organisation",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": "CST232",
+              "name": "Operating Systems",
+              "year": 1,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": "CST235",
+              "name": "Principles of Computer Networks and Information Security",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CSE241",
+              "name": "Foundations of Software Engineering",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CSE241",
+              "name": "Foundations of Software Engineering",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CAT201",
+              "name": "Integrated Software Development Workshop",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CST235",
+              "name": "Principles of Computer Networks and Information Security",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": "CPT212",
+              "name": "Design and Analysis of Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": "CAT302",
+              "name": "Industrial Training",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CAT304",
+              "name": "Group Innovation Project and Study for Sustainability",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CSE242",
+              "name": "Software Requirements Analysis and Modelling",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CSE341",
+              "name": "Software Architecture and Design",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CSE441",
+              "name": "Software Process and Quality Assurance",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CSE442",
+              "name": "Software Testing",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": "CAT404",
+              "name": "Software Engineering Major Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": "CAT402",
+              "name": "Professional and Technopreneurship Development",
+              "year": 4,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": "CMT321",
+              "name": "Management and Engineering of Databases",
+              "year": 3,
+              "category": "database",
+              "isCore": false
+            },
+            {
+              "code": "CMT323",
+              "name": "Information Systems Theory and Management",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": false
+            },
+            {
+              "code": "CMT425",
+              "name": "Enterprise Architecture and Systems",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": false
+            },
+            {
+              "code": "CMT322",
+              "name": "Web Engineering and Technologies",
+              "year": 4,
+              "category": "web-development",
+              "isCore": false
+            },
+            {
+              "code": "CPC352",
+              "name": "Multimedia Systems and Interactive Design",
+              "year": 4,
+              "category": "graphics-multimedia",
+              "isCore": false
+            },
+            {
+              "code": "CMT426",
+              "name": "Business Intelligence and Analytics",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": "CMT427",
+              "name": "Information Storage and Retrieval",
+              "year": 4,
+              "category": "data-science",
+              "isCore": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "universityId": "sunway",
+      "universityName": "Sunway University",
+      "type": "private",
+      "faculty": "Faculty of Engineering and Technology / School of Mathematical Sciences",
+      "programs": [
+        {
+          "id": "sunway-cs",
+          "name": "BSc (Honours) in Computer Science (dual award with Lancaster University)",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/courses/bachelor-of-science-honours-computer-science",
+          "note": "JS-rendered page \u2014 partial course list from HTML snapshot",
+          "courses": [
+            {
+              "code": null,
+              "name": "AI Foundation and Applications",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Mathematics",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Organisation",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Database Fundamentals",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Object Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Operating System Fundamentals",
+              "year": 1,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming Principles",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Systems Analysis",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Code Camp",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Structures and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Essentials of Employability",
+              "year": 2,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Science and Analytics",
+              "year": 2,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Software Design",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming Languages",
+              "year": 2,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Artificial Intelligence",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Distributed Systems",
+              "year": 3,
+              "category": "cloud-computing",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Human Computer Interaction",
+              "year": 3,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Capstone Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Internship",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Mining and Design Patterns",
+              "year": 3,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "UI/UX Design and Development",
+              "year": 3,
+              "category": "human-computer-interaction",
+              "isCore": true
+            }
+          ]
+        },
+        {
+          "id": "sunway-ai",
+          "name": "BSc (Honours) in Artificial Intelligence (dual award with Lancaster University)",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/courses/bachelor-of-science-honours-artificial-intelligence",
+          "note": "JS-rendered page \u2014 partial course list from HTML snapshot",
+          "courses": [
+            {
+              "code": null,
+              "name": "AI Foundation and Applications",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Mathematics",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Organisation",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Database Fundamentals",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Object Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Operating System Fundamentals",
+              "year": 1,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming Principles",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Systems Analysis",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Structures and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Machine Learning",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Artificial Intelligence",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Capstone Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Internship",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Fusion",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Mining and Knowledge Discovery",
+              "year": 2,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Intelligent Digital Twin",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Cognitive Systems",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            }
+          ]
+        },
+        {
+          "id": "sunway-ds",
+          "name": "Bachelor of Information Systems (Honours) in Data Analytics (with SAS & Alibaba Cloud)",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/courses/bachelor-of-information-systems-honours-data",
+          "note": "JS-rendered page \u2014 partial course list from HTML snapshot",
+          "courses": [
+            {
+              "code": null,
+              "name": "Data Analytics and Business Intelligence",
+              "year": 1,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Database Management",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming for Data Analysis",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Statistics for Data Science",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Advanced Business Analytics",
+              "year": 2,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Artificial Intelligence",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Big Data Analytics in the Cloud",
+              "year": 3,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Business Intelligence",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Mining and Knowledge Discovery",
+              "year": 2,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Project Management",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Capstone Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Internship",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Digital Business Startup",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": true
+            }
+          ]
+        },
+        {
+          "id": "sunway-se",
+          "name": "Bachelor of Software Engineering (Hons) (dual award with Lancaster University)",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/courses/bachelor-of-software-engineering-hons",
+          "note": "JS-rendered page \u2014 partial course list from HTML snapshot",
+          "courses": [
+            {
+              "code": null,
+              "name": "AI Foundation and Applications",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Mathematics",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Organisation",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Database Fundamentals",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Object Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Operating System Fundamentals",
+              "year": 1,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming Principles",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Software Engineering Principles",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Artificial Intelligence",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Structure and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Software Development",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Networking and Security",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Communication",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Network Security",
+              "year": 2,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Database Management Systems",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Capstone Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Internship",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Software Testing and Quality Assurance",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            }
+          ]
+        },
+        {
+          "id": "sunway-net",
+          "name": "BSc (Hons) Information Technology (Computer Networking and Security) (dual award with Lancaster University)",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://sunwayuniversity.edu.my/faculty-of-engineering-and-technology/courses/bsc-hons-information-technology-computer-networking",
+          "note": "JS-rendered page \u2014 partial course list from HTML snapshot",
+          "courses": [
+            {
+              "code": null,
+              "name": "AI Foundation and Applications",
+              "year": 1,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Mathematics",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Organisation",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Database Fundamentals",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Object Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Operating System Fundamentals",
+              "year": 1,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming Principles",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Systems Analysis",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Networks",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Cloud Computing",
+              "year": 2,
+              "category": "cloud-computing",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Distributed Systems",
+              "year": 2,
+              "category": "cloud-computing",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Essentials of Employability",
+              "year": 2,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "IoT Networking and Security",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "System Administration",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Network Security",
+              "year": 2,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Probability and Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Advanced Computer Networks",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Advanced Topics in Computer Security",
+              "year": 3,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Capstone Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Internship",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            }
+          ]
+        },
+        {
+          "id": "sunway-stat",
+          "name": "BSc (Honours) in Statistical Data Modelling",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://sunwayuniversity.edu.my/school-of-mathematical-sciences/courses/bachelor-of-science-honours-statistical-data-modelling",
+          "note": "JS-rendered page \u2014 partial course list from HTML snapshot",
+          "courses": [
+            {
+              "code": null,
+              "name": "Principles of Business Finance",
+              "year": 1,
+              "category": "business-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming Principles",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "AI-Driven Forecasting and Modelling",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Applied Econometrics",
+              "year": 3,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Machine Learning Techniques for Data Mining",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Multivariate Analysis",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Time Series Analysis",
+              "year": 3,
+              "category": "mathematics",
+              "isCore": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "universityId": "tarumt",
+      "universityName": "Tunku Abdul Rahman University of Management and Technology (TARUMT)",
+      "type": "private",
+      "faculty": "Faculty of Computer Science and Digital Technology",
+      "programs": [
+        {
+          "id": "tarumt-rmm",
+          "name": "Bachelor of Science (Honours) in Management Mathematics with Computing",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://focs.tarc.edu.my/programmes/bachelor-degree/bachelor-of-science-honours-in-management-mathematics-with-computi-rmm",
+          "courses": [
+            {
+              "code": null,
+              "name": "Algebra",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Linear Algebra",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Probability and Statistics",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Mathematical Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Applied Statistics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Discrete Mathematics",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Calculus I",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Calculus II",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Advanced Calculus",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Operations Research I",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Operations Research II",
+              "year": 3,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Financial Mathematics",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Advanced Financial Mathematics",
+              "year": 3,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Quality Control",
+              "year": 3,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Mathematical and Statistical Software",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Numerical Methods",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Cryptography",
+              "year": 2,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Organisation and Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Database Management",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Object-Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Problem Solving and Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "System Analysis and Design",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Artificial Intelligence",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Science",
+              "year": 2,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Visualisation",
+              "year": 3,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Machine Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Industrial Training",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Project",
+              "year": 4,
+              "category": "final-year-project",
+              "isCore": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "universityId": "ukm",
+      "universityName": "Universiti Kebangsaan Malaysia (UKM)",
+      "type": "public",
+      "faculty": "Faculty of Information Science and Technology",
+      "programs": [
+        {
+          "id": "ukm-cs",
+          "name": "Bachelor of Computer Science with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "totalCredits": 128,
+          "source": "https://www.ukm.my/portalukm/undergraduate/computer-science/",
+          "note": "Partial \u2014 specialization track details need confirmation",
+          "courses": [
+            {
+              "code": null,
+              "name": "Computer Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Discrete Mathematics",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Platform Technology",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Databases",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Program Design and Problem Solving",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Network Technology",
+              "year": 1,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Advanced Database",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Object Oriented Software Engineering",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Introduction to Artificial Intelligence",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Human Computer Interaction",
+              "year": 2,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming Paradigm",
+              "year": 2,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Compiler Construction",
+              "year": 2,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Web Programming",
+              "year": 3,
+              "category": "web-development",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Algorithm Analysis and Design",
+              "year": 3,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Project Proposal",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Project",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Industrial Training",
+              "year": 4,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Industrial Project",
+              "year": 4,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Operating System",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Mobile Programming",
+              "year": 3,
+              "category": "mobile-development",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "System Administration",
+              "year": 3,
+              "category": "operating-systems",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Wireless Communication",
+              "year": 2,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Network Programming",
+              "year": 3,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Cyber Security",
+              "year": 3,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Principles of Data Science",
+              "year": 2,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Data Mining",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Data Engineering",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Machine Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Natural Language Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Robotics",
+              "year": 2,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Image Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Soft Computing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Deep Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "IoT",
+              "year": 3,
+              "category": "embedded-systems",
+              "isCore": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "universityId": "taylor",
+      "universityName": "Taylor's University",
+      "type": "private",
+      "faculty": "Faculty of Engineering and Technology",
+      "programs": [
+        {
+          "id": "taylor-cs",
+          "name": "Bachelor of Computer Science (Honours)",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://university.taylors.edu.my/en/study/explore-all-programmes/computer-science/undergraduate/bachelor-of-computer-science.html",
+          "note": "Partial \u2014 specializations confirmed from HTML; individual course names need confirmation",
+          "courses": [
+            {
+              "code": null,
+              "name": "Database Systems",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Architecture and Organisation",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Object Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Discrete Structures",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Principles of Software Engineering",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Systems Analysis and Design",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Structures and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Operating Systems",
+              "year": 2,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Advanced Programming",
+              "year": 2,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Networks",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Machine Learning and Intelligent System",
+              "year": 2,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Ideating Start-up",
+              "year": 2,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Human Computer Interaction",
+              "year": 2,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Professional Practices and Information Security",
+              "year": 2,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Capstone Project I",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Capstone Project II",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Industrial Project I",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Industrial Project II",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Technopreneurship Project I",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Technopreneurship Project II",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Statistical Inference and Modelling",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Data Science Principles",
+              "year": 2,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Data Mining",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Big Data Technologies",
+              "year": 3,
+              "category": "data-science",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Computer and Network Security",
+              "year": 2,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Computer Intrusion Detection",
+              "year": 3,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Computer Crime and Digital Evidence",
+              "year": 3,
+              "category": "security",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Wireless Networks and Security",
+              "year": 2,
+              "category": "networking",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Introduction to Mobile Computing",
+              "year": 2,
+              "category": "mobile-development",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Mobile Applications Development",
+              "year": 3,
+              "category": "mobile-development",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Internet of Things",
+              "year": 3,
+              "category": "embedded-systems",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Computer Vision and Natural Language Processing",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Data Analytics and Machine Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            },
+            {
+              "code": null,
+              "name": "Cognitive Computing and Applications",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "universityId": "inti",
+      "universityName": "INTI International University",
+      "type": "private",
+      "faculty": "Faculty of Engineering and Technology",
+      "programs": [
+        {
+          "id": "inti-cs",
+          "name": "Bachelor of Computer Science (Hons)",
+          "type": "private",
+          "duration": "3 years",
+          "source": "https://newinti.edu.my/programme/bachelor-of-computer-science-hons-coventry-uk/",
+          "note": "Level 1 = Year 1, Level 2 = Year 2, Level 3 = Year 3",
+          "courses": [
+            {
+              "code": null,
+              "name": "Computer Architecture",
+              "year": 1,
+              "category": "hardware-architecture",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Fundamentals of Operating System",
+              "year": 1,
+              "category": "operating-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Graphic Animation",
+              "year": 1,
+              "category": "graphics-multimedia",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Information Security and Ethics",
+              "year": 1,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Introduction to Data Analytics",
+              "year": 1,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Introduction to Database Systems",
+              "year": 1,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "IT Infrastructure Landscape",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Mathematics for Computing",
+              "year": 1,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Object-Oriented Programming",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Programming Techniques",
+              "year": 1,
+              "category": "programming",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Systems Analysis and Design",
+              "year": 1,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Computer Communication and Networks",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Structures and Algorithms",
+              "year": 2,
+              "category": "data-structures",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "IT Project Management",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Quantitative Methods",
+              "year": 2,
+              "category": "mathematics",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Software Engineering",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "System Development Tools and Techniques",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Introduction to Cloud Computing and Virtualization",
+              "year": 2,
+              "category": "cloud-computing",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Wireless and Mobile Communication",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Mining and Predictive Analytics",
+              "year": 2,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Data Warehouse and Multidimensional Modelling",
+              "year": 2,
+              "category": "database",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Software Testing",
+              "year": 2,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Web Application Development",
+              "year": 2,
+              "category": "web-development",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Cybersecurity",
+              "year": 2,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Routing Protocols and Concepts",
+              "year": 2,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "ERP Programming",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Artificial Intelligence",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Project I",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Project II",
+              "year": 3,
+              "category": "final-year-project",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "UX Design",
+              "year": 3,
+              "category": "human-computer-interaction",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Web Programming with PHP",
+              "year": 3,
+              "category": "web-development",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Internship",
+              "year": 3,
+              "category": "professional",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Backup and Disaster Recovery",
+              "year": 3,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Cloud Security",
+              "year": 3,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Mobile Application Development using Android",
+              "year": 3,
+              "category": "mobile-development",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Big Data Analytics",
+              "year": 3,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Business Intelligence",
+              "year": 3,
+              "category": "business-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Social Web and Mobile Analytics",
+              "year": 3,
+              "category": "data-science",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Concurrent and Real-time System",
+              "year": 3,
+              "category": "embedded-systems",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Machine Learning",
+              "year": 3,
+              "category": "ai-ml",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Software Quality",
+              "year": 3,
+              "category": "software-engineering",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Network Management",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Network Security",
+              "year": 3,
+              "category": "security",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Wireless Network Planning and Design",
+              "year": 3,
+              "category": "networking",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Cross-Platform Mobile Development",
+              "year": 3,
+              "category": "mobile-development",
+              "isCore": true
+            },
+            {
+              "code": null,
+              "name": "Ubiquitous Computing",
+              "year": 3,
+              "category": "embedded-systems",
+              "isCore": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "universityId": "utm",
+      "universityName": "Universiti Teknologi Malaysia (UTM)",
+      "type": "public",
+      "faculty": "Faculty of Computing",
+      "programs": [
+        {
+          "id": "utm-se",
+          "name": "Bachelor in Software Engineering with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "source": "https://comp.utm.my/undergraduate/",
+          "note": "Course data in PDF \u2014 image-based, not text-extractable. Share UTM curriculum PDF for complete course list.",
+          "courses": []
+        },
+        {
+          "id": "utm-cs-cns",
+          "name": "Bachelor of Computer Science (Computer Networks and Security) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "source": "https://comp.utm.my/undergraduate/",
+          "note": "Course data in PDF \u2014 image-based, not text-extractable. Share UTM curriculum PDF for complete course list.",
+          "courses": []
+        },
+        {
+          "id": "utm-cs-bio",
+          "name": "Bachelor of Computer Science (Bioinformatics) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "source": "https://comp.utm.my/undergraduate/",
+          "note": "Course data in PDF \u2014 image-based, not text-extractable. Share UTM curriculum PDF for complete course list.",
+          "courses": []
+        },
+        {
+          "id": "utm-cs-de",
+          "name": "Bachelor of Computer Science (Data Engineering) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "source": "https://comp.utm.my/undergraduate/",
+          "note": "Course data in PDF \u2014 image-based, not text-extractable. Share UTM curriculum PDF for complete course list.",
+          "courses": []
+        },
+        {
+          "id": "utm-cs-gms",
+          "name": "Bachelor of Computer Science (Graphics and Multimedia Software) with Honours",
+          "type": "public",
+          "duration": "4 years",
+          "source": "https://comp.utm.my/undergraduate/",
+          "note": "Course data in PDF \u2014 image-based, not text-extractable. Share UTM curriculum PDF for complete course list.",
+          "courses": []
+        }
+      ]
+    }
+  ]
+}
