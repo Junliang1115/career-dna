@@ -284,6 +284,29 @@ export default function ProfilePage() {
 
   const hasCareerType = !!profile.careerType;
 
+  // ── Employer profile state ─────────────────────────────────
+  const isEmployer = profile.role === 'employer';
+  const [editCompany, setEditCompany] = useState(false);
+  const [companyName, setCompanyName] = useState(profile.companyName || '');
+  const [industry, setIndustry] = useState(profile.industry || '');
+  const [companySize, setCompanySize] = useState(profile.companySize || '');
+  const [hiringFor, setHiringFor] = useState(profile.hiringFor || '');
+
+  const handleSaveEmployer = () => {
+    setProfile({ companyName, industry, companySize, hiringFor });
+    setEditCompany(false);
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  };
+
+  const INDUSTRIES = [
+    'Fintech', 'E-commerce', 'Cybersecurity', 'Consulting', 'Healthcare',
+    'Education', 'Media & Entertainment', 'Logistics & Supply Chain',
+    'Real Estate', 'Manufacturing', 'Telecommunications', 'Government', 'Other',
+  ];
+
+  const COMPANY_SIZES = ['Startup', 'Mid-size', 'Enterprise'];
+
   return (
     <div
       style={{ maxWidth: 680, margin: "0 auto", padding: "40px 24px 120px" }}
@@ -336,7 +359,241 @@ export default function ProfilePage() {
         </button>
       </div>
 
-      {/* ── MBTI Result Header ─────────────────────────────── */}
+      {/* ══════════════════════════════════════════════════════
+          EMPLOYER PROFILE  (shown when role === 'employer')
+      ══════════════════════════════════════════════════════ */}
+      {isEmployer && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+
+          {/* ── Company Header ─────────────────────────────────── */}
+          <div style={{
+            padding: '28px 32px',
+            borderRadius: 16,
+            background: 'var(--surface)',
+            border: '1px solid var(--border)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {industry && (
+                  <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    padding: '3px 10px',
+                    borderRadius: 20,
+                    background: 'var(--accent-green-subtle)',
+                    border: '1px solid var(--accent-green-border)',
+                    color: 'var(--accent-green)',
+                    fontSize: 11,
+                    fontWeight: 600,
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase' as const,
+                    width: 'fit-content',
+                  }}>
+                    {industry}
+                  </span>
+                )}
+                <h1 style={{
+                  fontSize: 28,
+                  fontWeight: 700,
+                  color: 'var(--text)',
+                  fontFamily: "'Newsreader', serif",
+                  lineHeight: 1.2,
+                }}>
+                  {companyName || 'Your Company'}
+                </h1>
+                <p style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 2 }}>
+                  Employer Profile
+                </p>
+              </div>
+
+              {!editCompany ? (
+                <button
+                  onClick={() => setEditCompany(true)}
+                  style={{
+                    padding: '7px 14px',
+                    borderRadius: 8,
+                    border: '1px solid var(--border)',
+                    background: 'transparent',
+                    color: 'var(--text-secondary)',
+                    fontSize: 12,
+                    fontWeight: 500,
+                    cursor: 'pointer',
+                    transition: 'all 0.15s',
+                  }}
+                  onMouseOver={e => {
+                    e.currentTarget.style.borderColor = 'var(--accent-green)';
+                    e.currentTarget.style.color = 'var(--accent-green)';
+                  }}
+                  onMouseOut={e => {
+                    e.currentTarget.style.borderColor = 'var(--border)';
+                    e.currentTarget.style.color = 'var(--text-secondary)';
+                  }}
+                >
+                  Edit Profile
+                </button>
+              ) : (
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <button
+                    onClick={handleSaveEmployer}
+                    style={{
+                      padding: '7px 14px',
+                      borderRadius: 8,
+                      border: 'none',
+                      background: 'var(--accent-green)',
+                      color: 'white',
+                      fontSize: 12,
+                      fontWeight: 500,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {saved ? '✓ Saved' : 'Save'}
+                  </button>
+                  <button
+                    onClick={() => { setEditCompany(false); setCompanyName(profile.companyName || ''); setIndustry(profile.industry || ''); setCompanySize(profile.companySize || ''); setHiringFor(profile.hiringFor || ''); }}
+                    style={{
+                      padding: '7px 14px',
+                      borderRadius: 8,
+                      border: '1px solid var(--border)',
+                      background: 'transparent',
+                      color: 'var(--text-secondary)',
+                      fontSize: 12,
+                      fontWeight: 500,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* ── Info Grid ────────────────────────────────────── */}
+            {editCompany ? (
+              /* Inline edit form */
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginTop: 20 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                  <label style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }}>Company Name</label>
+                  <input
+                    value={companyName}
+                    onChange={e => setCompanyName(e.target.value)}
+                    placeholder="e.g. TechCorp Malaysia"
+                    style={{ ...inputStyle }}
+                  />
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                  <label style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }}>Industry</label>
+                  <select value={industry} onChange={e => setIndustry(e.target.value)} style={inputStyle}>
+                    <option value="">Select industry</option>
+                    {INDUSTRIES.map(ind => <option key={ind} value={ind}>{ind}</option>)}
+                  </select>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                  <label style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }}>Company Size</label>
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    {COMPANY_SIZES.map(size => (
+                      <button
+                        key={size}
+                        onClick={() => setCompanySize(size)}
+                        style={{
+                          flex: 1,
+                          padding: '8px 4px',
+                          borderRadius: 8,
+                          border: `1.5px solid ${companySize === size ? 'var(--accent-green)' : 'var(--border)'}`,
+                          background: companySize === size ? 'var(--accent-green-subtle)' : 'transparent',
+                          color: companySize === size ? 'var(--accent-green)' : 'var(--text-secondary)',
+                          fontSize: 12,
+                          fontWeight: 500,
+                          cursor: 'pointer',
+                          transition: 'all 0.15s',
+                        }}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                  <label style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase' as const, letterSpacing: '0.05em' }}>Hiring For</label>
+                  <input
+                    value={hiringFor}
+                    onChange={e => setHiringFor(e.target.value)}
+                    placeholder="e.g. Full Stack Engineers"
+                    style={{ ...inputStyle }}
+                  />
+                </div>
+              </div>
+            ) : (
+              /* Read-only info grid */
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginTop: 20 }}>
+                {[
+                  { label: 'Company Size', value: companySize || '—' },
+                  { label: 'Industry', value: industry || '—' },
+                  { label: 'Hiring For', value: hiringFor || '—' },
+                ].map(item => (
+                  <div key={item.label} style={{
+                    padding: '14px 16px',
+                    borderRadius: 10,
+                    border: '1px solid var(--border)',
+                    background: 'var(--background)',
+                  }}>
+                    <p style={{ fontSize: 10, fontWeight: 600, color: 'var(--text-tertiary)', textTransform: 'uppercase' as const, letterSpacing: '0.06em', marginBottom: 5 }}>
+                      {item.label}
+                    </p>
+                    <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* ── Quick Actions ─────────────────────────────────── */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <a href="/employer" style={{ textDecoration: 'none' }}>
+              <div style={{
+                padding: '20px 24px',
+                borderRadius: 12,
+                border: '1px solid var(--border)',
+                background: 'var(--surface)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 6,
+                cursor: 'pointer',
+                transition: 'all 0.15s',
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.borderColor = 'var(--accent-green)';
+                e.currentTarget.style.background = 'var(--accent-green-subtle)';
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.background = 'var(--surface)';
+              }}
+              >
+                <span style={{ fontSize: 22 }}>🔍</span>
+                <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>Talent Pool</p>
+                <p style={{ fontSize: 12, color: 'var(--text-secondary)' }}>Browse & shortlist candidates</p>
+              </div>
+            </a>
+            <div style={{
+              padding: '20px 24px',
+              borderRadius: 12,
+              border: '1px solid var(--border)',
+              background: 'var(--surface)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 6,
+            }}>
+              <span style={{ fontSize: 22 }}>📋</span>
+              <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text)' }}>Posted Roles</p>
+              <p style={{ fontSize: 12, color: 'var(--text-secondary)' }}>0 active job listings</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── MBTI Result Header (candidates only) ─────────────── */}
       <div
         style={{
           padding: "32px",
@@ -455,7 +712,8 @@ export default function ProfilePage() {
         )}
       </div>
 
-      {/* ── Sections ───────────────────────────────────────── */}
+      {/* ── Sections (candidates only) ─────────────────────────── */}
+      {!isEmployer && (
       <div style={{ display: "flex", flexDirection: "column", gap: 36 }}>
         {/* University */}
         <section>
@@ -930,8 +1188,10 @@ export default function ProfilePage() {
           )}
         </section>
       </div>
+      )}
 
-      {/* ── Sticky Save Button ──────────────────────────────── */}
+      {/* ── Sticky Save Button (candidates only) ─────────────────── */}
+      {!isEmployer && (
       <div
         style={{
           position: "fixed",
@@ -978,6 +1238,7 @@ export default function ProfilePage() {
           )}
         </button>
       </div>
+      )}
     </div>
   );
 }

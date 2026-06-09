@@ -4,8 +4,9 @@ import { useAuth } from '@/lib/auth-context';
 import { useRouter } from 'next/navigation';
 import { useApp } from '@/lib/context';
 import TalentPoolMap from '@/components/employer/TalentPoolMap';
+import ShortlistPanel from '@/components/employer/ShortlistPanel';
 import { mockCandidates, topCandidates, mockJob } from '@/lib/mockCandidates';
-import { Briefcase, Users, BarChart3, TrendingUp, Filter, Sliders, FileText, CheckCircle } from 'lucide-react';
+import { Briefcase, Users, BarChart3, TrendingUp, FileText, CheckCircle, Star, Sliders } from 'lucide-react';
 
 const ACCENT = '#2D6A4F';
 
@@ -35,6 +36,29 @@ export default function EmployerPage() {
   const [jdParsed, setJdParsed] = useState(true); // Start with parsed (pre-filled)
   const [isParsing, setIsParsing] = useState(false);
   const [weightMode, setWeightMode] = useState<'balanced' | 'technical' | 'soft'>('balanced');
+  const [shortlisted, setShortlisted] = useState<ShortlistedCandidate[]>([]);
+
+  interface ShortlistedCandidate {
+    id: string; name: string; avatar: string; overallScore: number;
+    technicalSkillScore: number; softSkillScore: number;
+    mbti: string; university: string; yearsExp: number; topSkills: string[];
+  }
+
+  const toggleShortlist = (candidate: typeof mockCandidates[0]) => {
+    setShortlisted(prev => {
+      const exists = prev.find(c => c.id === candidate.id);
+      if (exists) return prev.filter(c => c.id !== candidate.id);
+      return [...prev, {
+        id: candidate.id, name: candidate.name, avatar: candidate.avatar,
+        overallScore: candidate.overallScore, technicalSkillScore: candidate.technicalSkillScore,
+        softSkillScore: candidate.softSkillScore, mbti: candidate.mbti,
+        university: candidate.university, yearsExp: candidate.yearsExp,
+        topSkills: candidate.topSkills,
+      }];
+    });
+  };
+
+  const isShortlisted = (id: string) => shortlisted.some(c => c.id === id);
 
   useEffect(() => {
     if (!loading && !user) router.push('/login');
@@ -258,17 +282,24 @@ export default function EmployerPage() {
             </div>
           </div>
 
-          {/* Top candidates list */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <h2 style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)' }}>
-                Top {topCandidates.length} Matches
-              </h2>
-              <span style={{ fontSize: 10, color: 'var(--text-secondary)' }}>score rank</span>
-            </div>
+          {/* Right: Shortlist + Candidates */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {/* Shortlist */}
+            <ShortlistPanel
+              shortlisted={shortlisted}
+              onRemove={(id) => setShortlisted(prev => prev.filter(c => c.id !== id))}
+            />
 
-            {topCandidates.map((candidate, i) => (
-              <div key={candidate.id} style={{
+            {/* All candidates */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
+                  <h2 style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)' }}>
+                    All Candidates
+                  </h2>
+                  <span style={{ fontSize: 10, color: 'var(--text-secondary)' }}>{mockCandidates.length} total</span>
+                </div>
+                {mockCandidates.map((candidate, i) => (
+                  <div key={candidate.id} style={{
                 padding: '11px', borderRadius: 10, border: '1px solid var(--border)',
                 background: 'white', cursor: 'pointer', transition: 'all 0.12s',
               }}
@@ -336,6 +367,7 @@ export default function EmployerPage() {
 
       </div>
     </div>
+  </div>
   );
 }
 
