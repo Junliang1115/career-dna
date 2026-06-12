@@ -19,8 +19,6 @@ const semanticLayout: Record<string, { x: number, y: number }> = {
   'productdesign': { x: 136, y: 596 },
 
   // Product & Management (Bottom Left)
-  'engineeringm': { x: 360, y: 540 },
-  'product': { x: 304, y: 610 },
   'techsales': { x: 220, y: 666 },
   'techwriting': { x: 164, y: 708 },
   'techconsult': { x: 304, y: 722 },
@@ -132,37 +130,34 @@ export const fieldEdges: FieldEdge[] = [
   { source: 'systems',       target: 'games',              skill: 'C++',           strength: 2 },
   { source: 'systems',       target: 'csp',               skill: 'Algorithms',     strength: 2 },
   { source: 'blockchain',    target: 'backend',            skill: 'Backend',        strength: 2 },
-  { source: 'product',       target: 'analytics',          skill: 'Data',           strength: 2 },
-  { source: 'product',       target: 'ux',                skill: 'User-Centric',  strength: 2 },
   { source: 'techsales',     target: 'cloud',              skill: 'Solutions',     strength: 2 },
   { source: 'techconsult',   target: 'cloud',              skill: 'Architecture',  strength: 2 },
-  { source: 'engineeringm',  target: 'product',            skill: 'Roadmap',       strength: 2 },
   { source: 'datavis',        target: 'analytics',          skill: 'Visualization', strength: 3 },
   { source: 'nlp',           target: 'datascience',         skill: 'ML',             strength: 2 },
   { source: 'cloud',         target: 'platform',            skill: 'Terraform',     strength: 2 },
 ];
 
 // Maps career type → field IDs that match that type
-export const fieldByType: Record<string, string[]> = {
-  SEGC: ['frontend', 'fullstack', 'ui'],
-  SEGP: ['frontend', 'fullstack', 'ux', 'ui', 'productdesign'],
-  SEGX: ['frontend', 'mobile', 'games', 'ui', 'ux'],
-  SEGXc: ['frontend', 'mobile', 'games', 'nlp', 'datavis'],
-  SAGC: ['datascience', 'analytics', 'datavis'],
-  SAGP: ['datascience', 'mlai', 'analytics', 'datavis'],
-  SAGX: ['mlai', 'deeplearning', 'nlp', 'datascience'],
-  SAXC: ['datascience', 'mlai', 'nlp', 'csp', 'research'],
-  TAAC: ['dataeng', 'analytics', 'datavis'],
-  TAAP: ['dataeng', 'cloud', 'datavis'],
-  TAXC: ['dataeng', 'mlai', 'deeplearning', 'blockchain'],
-  TACC: ['dataeng', 'dataeng', 'sre', 'platform'],
-  TACP: ['cloud', 'platform', 'sre'],
-  TECX: ['backend', 'devops', 'cloud', 'sre', 'networking'],
-  TECP: ['backend', 'fullstack', 'platform'],
-  TEPX: ['backend', 'mobile', 'games', 'embedded', 'iot'],
-  TEPc: ['backend', 'mobile', 'systems', 'robotics'],
-  BEXC: ['backend', 'fullstack', 'blockchain'],
-  BEXP: ['backend', 'fullstack', 'techsales', 'techconsult'],
-  BECX: ['cybersec', 'appsec', 'secops', 'backend'],
-  BECP: ['cybersec', 'appsec', 'product'],
+const fieldsByRiasec: Record<string, string[]> = {
+  R: ['backend', 'mobile', 'games', 'embedded', 'devops', 'platform', 'sre', 'networking', 'iot', 'robotics', 'autonomous', 'systems', 'qa'],
+  I: ['datascience', 'mlai', 'deeplearning', 'nlp', 'cybersec', 'appsec', 'secops', 'csp', 'systems'],
+  A: ['frontend', 'fullstack', 'ui', 'ux', 'productdesign', 'games'],
+  S: ['techconsult', 'techsales', 'ux'],
+  E: ['techsales', 'blockchain'],
+  C: ['dataeng', 'analytics', 'datavis', 'techwriting', 'qa'],
 };
+
+export const fieldByType: Record<string, string[]> = new Proxy<Record<string, string[]>>({}, {
+  get(target, key) {
+    if (typeof key !== 'string') return undefined;
+
+    const fields = new Set<string>();
+    for (const char of key) {
+      const uChar = char.toUpperCase();
+      if (fieldsByRiasec[uChar]) {
+        fieldsByRiasec[uChar].forEach(f => fields.add(f));
+      }
+    }
+    return Array.from(fields);
+  }
+});
