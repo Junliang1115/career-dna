@@ -1731,66 +1731,6 @@ export default function ProfilePage() {
                   </div>
                 ))}
               </div>
-
-              {/* Perks & Benefits Card */}
-              <div
-                style={{
-                  padding: "28px 32px",
-                  borderRadius: 16,
-                  background: "var(--surface)",
-                  border: "1px solid var(--border)",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 14,
-                }}
-              >
-                <h2
-                  style={{
-                    fontSize: 16,
-                    fontWeight: 600,
-                    color: "var(--text)",
-                    fontFamily: "'Newsreader', serif",
-                  }}
-                >
-                  Work Perks & Culture
-                </h2>
-                {companyPerks.length > 0 ? (
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                    {companyPerks.map((perkId) => {
-                      const perkObj = AVAILABLE_PERKS.find(
-                        (p) => p.id === perkId,
-                      );
-                      return perkObj ? (
-                        <span
-                          key={perkId}
-                          style={{
-                            padding: "6px 12px",
-                            borderRadius: 20,
-                            border: "1px solid var(--border)",
-                            background: "var(--background)",
-                            fontSize: 12,
-                            color: "var(--text)",
-                            fontWeight: 500,
-                          }}
-                        >
-                          {perkObj.label}
-                        </span>
-                      ) : null;
-                    })}
-                  </div>
-                ) : (
-                  <p
-                    style={{
-                      fontSize: 13,
-                      color: "var(--text-tertiary)",
-                      fontStyle: "italic",
-                    }}
-                  >
-                    No work perks selected yet. Edit profile to share your
-                    company benefits.
-                  </p>
-                )}
-              </div>
             </>
           )}
 
@@ -2010,7 +1950,7 @@ export default function ProfilePage() {
 
                         {/* Talent Map Route Button */}
                         <Link
-                          href={"/employer?jobId=" + job.id}
+                          href={"/talent?jobId=" + job.id}
                           style={{
                             marginLeft: "auto",
                             display: "flex",
