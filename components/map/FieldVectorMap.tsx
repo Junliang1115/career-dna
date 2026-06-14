@@ -1,14 +1,15 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import {
   fieldNodes,
   fieldEdges,
   fieldByType,
   FieldNode,
 } from "@/lib/fieldGraph";
-import { jobs, Job } from "@/lib/jobData";
+import { jobs, Job, calculateJobMatches } from "@/lib/jobData";
 import { useApp } from "@/lib/context";
 import { DemandLevel } from "@/lib/jobData";
+import { ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
 
 const ACCENT = "#2D6A4F";
 
@@ -64,6 +65,110 @@ export default function FieldVectorMap({ careerType }: Props) {
   const [hovered, setHovered] = useState<string | null>(null);
   const [active, setActive] = useState<string | null>(null);
 
+  // Zoom & Pan state
+  const [zoom, setZoom] = useState(1.0);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [isPanning, setIsPanning] = useState(false);
+  const [panStart, setPanStart] = useState({ x: 0, y: 0 });
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+
+    const handleWheelRaw = (e: WheelEvent) => {
+      e.preventDefault();
+      const zoomFactor = 1.1;
+      setZoom((prev) => {
+        const newZoom =
+          e.deltaY < 0
+            ? Math.min(5.0, prev * zoomFactor)
+            : Math.max(0.4, prev / zoomFactor);
+        return newZoom;
+      });
+    };
+
+    svg.addEventListener("wheel", handleWheelRaw, { passive: false });
+    return () => {
+      svg.removeEventListener("wheel", handleWheelRaw);
+    };
+  }, []);
+
+  const handleCanvasMouseDown = (e: React.MouseEvent) => {
+    if (e.button !== 0) return;
+    setIsPanning(true);
+    setPanStart({ x: e.clientX - pan.x, y: e.clientY - pan.y });
+  };
+
+  const handleCanvasMouseMove = (e: React.MouseEvent) => {
+    if (isPanning) {
+      setPan({ x: e.clientX - panStart.x, y: e.clientY - panStart.y });
+    }
+  };
+
+  const handleCanvasMouseUp = () => {
+    setIsPanning(false);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    setIsPanning(true);
+    setPanStart({ x: touch.clientX - pan.x, y: touch.clientY - pan.y });
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isPanning || e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    setPan({
+      x: touch.clientX - panStart.x,
+      y: touch.clientY - panStart.y,
+    });
+  };
+
+  const handleTouchEnd = () => {
+    setIsPanning(false);
+  };
+
+  const handleZoomIn = () => {
+    setZoom((prev) => Math.min(5.0, prev * 1.2));
+  };
+
+  const handleZoomOut = () => {
+    setZoom((prev) => Math.max(0.4, prev / 1.2));
+  };
+
+  const handleReset = () => {
+    setPan({ x: 0, y: 0 });
+    setZoom(1.0);
+  };
+
+  // Find top match field ID and relevant field IDs for result-based highlighting
+  const topMatchFieldId = useMemo(() => {
+    const matches = calculateJobMatches(
+      careerType,
+      profile.skills || [],
+      profile.courses
+    );
+    return matches.length > 0 ? matches[0].job.fieldId : null;
+  }, [careerType, profile.skills, profile.courses]);
+
+  const resultFieldIds = useMemo(() => {
+    const matches = calculateJobMatches(
+      careerType,
+      profile.skills || [],
+      profile.courses
+    );
+    return new Set(matches.slice(0, 5).map(m => m.job.fieldId));
+  }, [careerType, profile.skills, profile.courses]);
+
+  // Set the top match field ID as active by default on load/change
+  useEffect(() => {
+    if (topMatchFieldId) {
+      setActive(topMatchFieldId);
+    }
+  }, [topMatchFieldId]);
+
   const highlightNodes = useMemo(() => {
     const set = new Set<string>([
       ...(active ? [active] : []),
@@ -115,126 +220,265 @@ export default function FieldVectorMap({ careerType }: Props) {
   };
 
   return (
-    <div>
-      {/* Minimalist graph */}
-      <svg
-        viewBox="0 0 900 460"
-        style={{ width: "100%", height: "auto", display: "block" }}
+    <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%" }}>
+      {/* Controls bar */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          justifyContent: "space-between",
+        }}
       >
-        {/* Edges */}
-        {fieldEdges.map((edge, i) => {
-          const src = fieldNodes.find((n) => n.id === edge.source);
-          const tgt = fieldNodes.find((n) => n.id === edge.target);
-          if (!src || !tgt) return null;
-          const isHighlighted =
-            highlightNodes.has(edge.source) && highlightNodes.has(edge.target);
-          return (
-            <line
-              key={i}
-              x1={src.x}
-              y1={src.y}
-              x2={tgt.x}
-              y2={tgt.y}
-              stroke={isHighlighted ? "#111111" : "#EAEAEA"}
-              strokeWidth={isHighlighted ? 1 : 0.5}
-              strokeOpacity={isHighlighted ? 0.4 : 0.3}
-              style={{ transition: "all 0.15s" }}
-            />
-          );
-        })}
-
-        {/* Nodes */}
-        {fieldNodes.map((node) => {
-          const isHighlighted = highlightNodes.has(node.id);
-          const isTypeMatch = typeNodes.has(node.id);
-          const isActive = active === node.id;
-          const isMuted = !isTypeMatch && !isHighlighted && !isActive;
-          const r = isHighlighted || isActive ? 5 : isTypeMatch ? 4.5 : 4;
-
-          return (
-            <g
-              key={node.id}
-              onClick={() => handleNodeClick(node.id)}
-              onMouseEnter={() => setHovered(node.id)}
-              onMouseLeave={() => setHovered(null)}
-              style={{ cursor: "pointer" }}
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          {/* Zoom controls */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              borderRadius: 6,
+              border: "1px solid var(--border)",
+              background: "var(--surface)",
+              overflow: "hidden",
+            }}
+          >
+            <button
+              onClick={handleZoomOut}
+              style={{
+                border: "none",
+                background: "transparent",
+                padding: "6px 8px",
+                cursor: "pointer",
+                color: "var(--text-secondary)",
+                display: "flex",
+                alignItems: "center",
+              }}
+              title="Zoom Out"
             >
-              {isTypeMatch && !isActive && (
-                <circle
-                  cx={node.x}
-                  cy={node.y}
-                  r={r + 4}
-                  fill="none"
-                  stroke={ACCENT}
-                  strokeWidth={0.75}
-                  strokeOpacity={0.3}
-                  style={{ transition: "all 0.15s" }}
-                />
-              )}
-              {node.kind === "skill" ? (
-                <rect
-                  x={node.x - r}
-                  y={node.y - r}
-                  width={r * 2}
-                  height={r * 2}
-                  rx={1}
-                  fill={
-                    isHighlighted || isActive
-                      ? node.color
-                      : isMuted
-                        ? "#EAEAEA"
-                        : node.color
-                  }
-                  fillOpacity={
-                    isMuted ? 0.5 : isHighlighted || isActive ? 1 : 0.35
-                  }
-                  transform={`rotate(45 ${node.x} ${node.y})`}
-                  style={{ transition: "all 0.15s" }}
-                />
-              ) : (
-                <circle
-                  cx={node.x}
-                  cy={node.y}
-                  r={r}
-                  fill={
-                    isHighlighted || isActive
-                      ? node.color
-                      : isMuted
-                        ? "#EAEAEA"
-                        : node.color
-                  }
-                  fillOpacity={
-                    isMuted ? 0.5 : isHighlighted || isActive ? 1 : 0.35
-                  }
-                  style={{ transition: "all 0.15s" }}
-                />
-              )}
-              {/* Label to the right */}
-              <text
-                x={node.x + r + 5}
-                y={node.y + 3.5}
-                style={{
-                  fontSize: 10,
-                  fontWeight: isTypeMatch
-                    ? 500
-                    : isHighlighted || isActive
-                      ? 500
-                      : 400,
-                  fill: isMuted
-                    ? "var(--text-tertiary)"
-                    : isHighlighted || isActive
-                      ? "var(--text)"
-                      : "var(--text-secondary)",
-                  fillOpacity: isMuted ? 0.6 : 1,
-                  transition: "all 0.15s",
-                }}
+              <ZoomOut size={12} />
+            </button>
+            <span
+              style={{
+                fontSize: 10,
+                color: "var(--text-secondary)",
+                padding: "0 4px",
+                minWidth: 32,
+                textAlign: "center",
+                fontWeight: 600,
+                userSelect: "none",
+              }}
+            >
+              {Math.round(zoom * 100)}%
+            </span>
+            <button
+              onClick={handleZoomIn}
+              style={{
+                border: "none",
+                background: "transparent",
+                padding: "6px 8px",
+                cursor: "pointer",
+                color: "var(--text-secondary)",
+                display: "flex",
+                alignItems: "center",
+              }}
+              title="Zoom In"
+            >
+              <ZoomIn size={12} />
+            </button>
+          </div>
+
+          <button
+            onClick={handleReset}
+            style={{
+              padding: "6px 10px",
+              borderRadius: 6,
+              border: "1px solid var(--border)",
+              background: "transparent",
+              color: "var(--text-secondary)",
+              fontSize: 11,
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
+            <RotateCcw size={11} /> Reset Map
+          </button>
+        </div>
+      </div>
+
+      {/* Map SVG container */}
+      <div
+        style={{
+          borderRadius: 16,
+          border: "1px solid var(--border)",
+          background: "var(--surface)",
+          overflow: "hidden",
+          cursor: isPanning ? "grabbing" : "grab",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <svg
+          ref={svgRef}
+          width="100%"
+          height="100%"
+          viewBox="0 0 1000 800"
+          onMouseDown={handleCanvasMouseDown}
+          onMouseMove={handleCanvasMouseMove}
+          onMouseUp={handleCanvasMouseUp}
+          onMouseLeave={handleCanvasMouseUp}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{
+            display: "block",
+            maxWidth: "100%",
+            maxHeight: "100%",
+          }}
+        >
+          <g
+            transform={`translate(${pan.x}, ${pan.y}) scale(${zoom})`}
+            style={{
+              transformOrigin: "500px 400px",
+              transition: isPanning ? "none" : "transform 0.15s ease-out",
+            }}
+          >
+          {/* Edges */}
+          {fieldEdges.map((edge, i) => {
+            const src = fieldNodes.find((n) => n.id === edge.source);
+            const tgt = fieldNodes.find((n) => n.id === edge.target);
+            if (!src || !tgt) return null;
+            const isHighlighted =
+              highlightNodes.has(edge.source) && highlightNodes.has(edge.target);
+            return (
+              <line
+                key={i}
+                x1={src.x}
+                y1={src.y}
+                x2={tgt.x}
+                y2={tgt.y}
+                stroke={isHighlighted ? "#111111" : "#EAEAEA"}
+                strokeWidth={isHighlighted ? 1 : 0.5}
+                strokeOpacity={isHighlighted ? 0.4 : 0.3}
+                style={{ vectorEffect: "non-scaling-stroke", transition: "all 0.15s" }}
+              />
+            );
+          })}
+
+          {/* Nodes */}
+          {fieldNodes.map((node) => {
+            const isHighlighted = highlightNodes.has(node.id);
+            const isTypeMatch = typeNodes.has(node.id);
+            const isActive = active === node.id;
+            const isResultField = resultFieldIds.has(node.id);
+            const isMuted = !isTypeMatch && !isHighlighted && !isActive && !isResultField;
+
+            // Compensate node radius so it grows slightly when zoomed
+            const baseR = isHighlighted || isActive || isResultField ? 5.5 : isTypeMatch ? 4.5 : 4;
+            const r = baseR / Math.pow(zoom, 0.75);
+
+            return (
+              <g
+                key={node.id}
+                onClick={() => handleNodeClick(node.id)}
+                onMouseEnter={() => setHovered(node.id)}
+                onMouseLeave={() => setHovered(null)}
+                style={{ cursor: "pointer" }}
               >
-                {node.label}
-              </text>
-            </g>
-          );
-        })}
+                {isTypeMatch && !isActive && (
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={r + 4 / Math.pow(zoom, 0.75)}
+                    fill="none"
+                    stroke={ACCENT}
+                    strokeWidth={0.75}
+                    strokeOpacity={0.3}
+                    style={{ vectorEffect: "non-scaling-stroke", transition: "all 0.15s" }}
+                  />
+                )}
+                {isResultField && !isActive && (
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={r + 5.5 / Math.pow(zoom, 0.75)}
+                    fill="none"
+                    stroke={node.color}
+                    strokeWidth={1.5}
+                    strokeDasharray="2 2"
+                    strokeOpacity={0.8}
+                    style={{ vectorEffect: "non-scaling-stroke", transition: "all 0.15s" }}
+                  />
+                )}
+                {node.kind === "skill" ? (
+                  <rect
+                    x={node.x - r}
+                    y={node.y - r}
+                    width={r * 2}
+                    height={r * 2}
+                    rx={1}
+                    fill={
+                      isHighlighted || isActive
+                        ? node.color
+                        : isMuted
+                          ? "#EAEAEA"
+                          : node.color
+                    }
+                    fillOpacity={
+                      isMuted ? 0.5 : isHighlighted || isActive || isResultField ? 1 : 0.35
+                    }
+                    transform={`rotate(45 ${node.x} ${node.y})`}
+                    style={{ transition: "all 0.15s" }}
+                  />
+                ) : (
+                  <circle
+                    cx={node.x}
+                    cy={node.y}
+                    r={r}
+                    fill={
+                      isHighlighted || isActive
+                        ? node.color
+                        : isMuted
+                          ? "#EAEAEA"
+                          : node.color
+                    }
+                    fillOpacity={
+                      isMuted ? 0.5 : isHighlighted || isActive || isResultField ? 1 : 0.35
+                    }
+                    style={{ vectorEffect: "non-scaling-stroke", transition: "all 0.15s" }}
+                  />
+                )}
+                {/* Label to the right */}
+                <text
+                  x={node.x + (baseR + 4) / Math.pow(zoom, 0.75)}
+                  y={node.y + 3 / Math.pow(zoom, 0.75)}
+                  style={{
+                    fontSize: `${10 / Math.pow(zoom, 0.75)}px`,
+                    fontWeight: isTypeMatch || isResultField
+                      ? 600
+                      : isHighlighted || isActive
+                        ? 500
+                        : 400,
+                    fill: isMuted
+                      ? "var(--text-tertiary)"
+                      : isHighlighted || isActive || isResultField
+                        ? "var(--text)"
+                        : "var(--text-secondary)",
+                    fillOpacity: isMuted ? 0.6 : 1,
+                    transition: "all 0.15s",
+                  }}
+                >
+                  {node.label}
+                </text>
+              </g>
+            );
+          })}
+        </g>
       </svg>
+      </div>
 
       <p
         style={{

@@ -40,7 +40,6 @@ export const careerFields: CareerField[] = [
   { id: 'secops',        label: 'Security Operations',         color: '#B91C1C', cluster: 'security' },
 
   // ── Product & Design ──────────────────────────────────────────────────────
-  { id: 'product',       label: 'Product Management',         color: '#F59E0B', cluster: 'product' },
   { id: 'ux',            label: 'UX Design',                   color: '#D97706', cluster: 'design' },
   { id: 'ui',            label: 'UI Design',                   color: '#B45309', cluster: 'design' },
   { id: 'productdesign', label: 'Product Design',              color: '#92400E', cluster: 'design' },
@@ -57,7 +56,6 @@ export const careerFields: CareerField[] = [
   { id: 'techsales',     label: 'Technical Sales / SE',       color: '#F97316', cluster: 'product' },
   { id: 'techwriting',   label: 'Technical Writing',          color: '#EA580C', cluster: 'product' },
   { id: 'techconsult',   label: 'Technology Consulting',      color: '#C2410C', cluster: 'product' },
-  { id: 'engineeringm',  label: 'Engineering Management',      color: '#F59E0B', cluster: 'engineering' },
 ];
 
 // ─── Specialized Positions per Field ─────────────────────────────────────────
@@ -117,7 +115,6 @@ export const positionsByField: Record<string, Position[]> = {
     { title: 'Game Engine Developer',      keywords: ['game engine', 'unreal', 'unity', 'physx', 'rendering'] },
     { title: 'Unity Developer',            keywords: ['unity', 'c#', 'game development', 'urp', 'asset pipeline'] },
     { title: 'Unreal Engine Developer',   keywords: ['unreal', 'c++', 'blueprints', 'umg', 'gameplay'] },
-    { title: 'Technical Director',         keywords: ['technical direction', 'game architecture', 'team lead'] },
     { title: 'VR/AR Developer',           keywords: ['vr', 'ar', 'unity', 'unreal', ' xr', 'oculus'] },
     { title: 'Multiplayer/Network Engineer', keywords: ['netcode', 'photon', 'mirror', 'networking', 'dedicated server'] },
   ],
@@ -154,7 +151,6 @@ export const positionsByField: Record<string, Position[]> = {
     { title: 'SDET (Software Dev in Test)', keywords: ['sdET', 'test automation', 'selenium', 'playwright', 'python'] },
     { title: 'Test Automation Engineer',   keywords: ['test automation', 'selenium', 'cypress', 'playwright', 'appium'] },
     { title: 'Performance Test Engineer',  keywords: ['performance testing', 'jmeter', 'gatling', 'load testing', 'profiling'] },
-    { title: 'QA Lead',                   keywords: ['qa lead', 'test strategy', 'team management', 'test planning'] },
     { title: 'Test Architect',           keywords: ['test architecture', 'test framework', 'automation design'] },
     { title: 'Manual QA Tester',          keywords: ['manual testing', 'test cases', 'bug reporting', 'regression'] },
   ],
@@ -232,7 +228,6 @@ export const positionsByField: Record<string, Position[]> = {
     { title: 'Production Engineer',        keywords: ['production engineering', 'reliability', 'monitoring', 'incident response'] },
     { title: 'Observability Engineer',     keywords: ['observability', 'datadog', 'prometheus', 'grafana', 'tracing'] },
     { title: 'Chaos Engineer',            keywords: ['chaos engineering', 'gremlin', 'litmus', 'failure injection', 'resilience'] },
-    { title: 'Incident Manager',           keywords: ['incident management', 'on-call', 'postmortem', 'sre', 'monitoring'] },
   ],
   networking: [
     { title: 'Network Engineer',           keywords: ['networking', 'tcp/ip', 'bgp', 'ospf', 'cisco', 'routing'] },
@@ -264,15 +259,6 @@ export const positionsByField: Record<string, Position[]> = {
     { title: 'EDR Engineer',              keywords: ['edr', 'crowdstrike', 'carbon black', 'sentinelone', 'endpoint detection'] },
     { title: 'Threat Hunter',             keywords: ['threat hunting', 'mitre att&ck', ' Hypothesis-driven', 'edr', 'siem'] },
   ],
-  product: [
-    { title: 'Product Manager',           keywords: ['product management', 'roadmap', 'prd', 'stakeholder', 'agile'] },
-    { title: 'Technical Product Manager', keywords: ['technical pm', 'technical product', 'engineering background', 'api'] },
-    { title: 'Associate Product Manager',  keywords: ['apm', 'product management', 'roadmap', 'stakeholder'] },
-    { title: 'Growth Product Manager',    keywords: ['growth pm', 'acquisition', 'activation', 'retention', 'experimentation'] },
-    { title: 'AI Product Manager',        keywords: ['ai pm', 'machine learning', 'llm', 'data', 'roadmap'] },
-    { title: 'Platform PM',               keywords: ['platform product manager', 'internal platform', 'developer product'] },
-    { title: 'Data Product Manager',      keywords: ['data product', 'data platform', 'analytics', 'metadata management'] },
-  ],
   ux: [
     { title: 'UX Designer',               keywords: ['ux design', 'user research', 'wireframing', 'prototyping', 'figma'] },
     { title: 'UX Researcher',             keywords: ['ux research', 'user research', 'usability testing', 'interviews', 'surveys'] },
@@ -289,7 +275,6 @@ export const positionsByField: Record<string, Position[]> = {
   productdesign: [
     { title: 'Product Designer',           keywords: ['product design', 'end-to-end design', 'figma', 'research', 'prototyping'] },
     { title: 'UX/UI Designer',            keywords: ['ux/ui', 'figma', 'user research', 'prototyping', 'design systems'] },
-    { title: 'Design Lead',               keywords: ['design lead', 'design strategy', 'team management', 'design systems'] },
     { title: 'UX Strategist',             keywords: ['ux strategy', 'user journey', 'business goals', 'research synthesis'] },
   ],
   systems: [
@@ -339,7 +324,6 @@ export const positionsByField: Record<string, Position[]> = {
   techsales: [
     { title: 'Solutions Engineer',          keywords: ['solutions engineering', 'technical sales', 'pre-sales', 'demos', 'architecture'] },
     { title: 'Sales Engineer',             keywords: ['sales engineering', 'technical sales', 'demo', 'rfi/rfp', 'scoping'] },
-    { title: 'Technical Account Manager',  keywords: ['tam', 'technical account management', 'customer success', 'onboarding'] },
     { title: 'Pre-Sales Engineer',         keywords: ['pre-sales', 'poc', 'demo', 'rfi', 'technical validation'] },
   ],
   techwriting: [
@@ -354,14 +338,6 @@ export const positionsByField: Record<string, Position[]> = {
     { title: 'Data Strategy Consultant',   keywords: ['data strategy', 'consulting', 'data governance', 'architecture', 'stakeholder'] },
     { title: 'Security Consultant',        keywords: ['security consulting', 'penetration testing', 'appsec', 'grc', 'advisory'] },
     { title: 'Digital Transformation Consultant', keywords: ['digital transformation', 'strategy', 'change management', 'technology'] },
-  ],
-  engineeringm: [
-    { title: 'Engineering Manager',        keywords: ['engineering management', 'team lead', 'people management', 'technical leadership'] },
-    { title: 'Tech Lead',                 keywords: ['tech lead', 'technical leadership', 'architecture', 'code review', 'mentoring'] },
-    { title: 'VP of Engineering',          keywords: ['vp engineering', 'engineering leadership', 'strategy', 'organization'] },
-    { title: 'Director of Engineering',    keywords: ['director engineering', 'engineering management', 'roadmap', 'hiring'] },
-    { title: 'CTO',                       keywords: ['cto', 'technology strategy', 'architecture', 'executive', 'vision'] },
-    { title: 'Principal Engineer',          keywords: ['principal engineer', 'technical strategy', 'architecture', 'across teams'] },
   ],
 };
 
