@@ -13,11 +13,61 @@ export function extractGithubUsername(input: string): string {
 // Fetch public GitHub repos and parse them + user commits to extract tech skills
 export async function fetchGithubSkills(username: string): Promise<{ skills: string[]; repos: any[] }> {
   try {
-    // Fetch up to 30 repositories
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=30`);
-    if (!response.ok) throw new Error('Failed to fetch repositories');
-    const repos = await response.json();
-    
+    // 1. Fetch repositories owned by the user
+    let ownedRepos: any[] = [];
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+      if (response.ok) {
+        ownedRepos = await response.json();
+      }
+    } catch (err) {
+      console.error('Failed to fetch owned repositories:', err);
+    }
+
+    // 2. Fetch commits authored by the user to find repositories they contributed to (fetch 3 pages of 100 items each, total 300 commits scanned)
+    let contributedRepos: any[] = [];
+    try {
+      const pagePromises = [1, 2, 3].map(page =>
+        fetch(
+          `https://api.github.com/search/commits?q=author:${username}&sort=author-date&order=desc&per_page=100&page=${page}`,
+          {
+            headers: {
+              Accept: 'application/vnd.github+json'
+            }
+          }
+        )
+          .then(res => (res.ok ? res.json() : null))
+          .catch(err => {
+            console.error(`Error fetching commits page ${page}:`, err);
+            return null;
+          })
+      );
+      const pagesData = await Promise.all(pagePromises);
+      const uniqueReposMap = new Map<number, any>();
+      pagesData.forEach(data => {
+        if (data && data.items && Array.isArray(data.items)) {
+          data.items.forEach((item: any) => {
+            if (item.repository) {
+              uniqueReposMap.set(item.repository.id, item.repository);
+            }
+          });
+        }
+      });
+      contributedRepos = Array.from(uniqueReposMap.values());
+    } catch (err) {
+      console.error('Failed to fetch contributed commits search:', err);
+    }
+
+    // 3. Combine and deduplicate repositories by ID
+    const allReposMap = new Map<number, any>();
+    ownedRepos.forEach((r: any) => allReposMap.set(r.id, r));
+    contributedRepos.forEach((r: any) => {
+      if (!allReposMap.has(r.id)) {
+        allReposMap.set(r.id, r);
+      }
+    });
+
+    const repos = Array.from(allReposMap.values());
     const detectedSkills = new Set<string>();
     
     // Skill mapping dictionary based on languages and topics/names/commit messages
@@ -91,12 +141,13 @@ export async function fetchGithubSkills(username: string): Promise<{ skills: str
       });
     });
 
-    // Fetch commits for every repository to extract skills from commit messages
-    // Note: limit loop to prevent hitting API rate limits on large number of repos
-    for (const repo of repos) {
+    // Fetch commits for repos to extract more skills (limit to first 10 repositories to avoid rate limits)
+    const reposToScan = repos.slice(0, 10);
+    for (const repo of reposToScan) {
       try {
+        const repoFullName = repo.full_name || `${username}/${repo.name}`;
         const commitsRes = await fetch(
-          `https://api.github.com/repos/${username}/${repo.name}/commits?author=${username}&per_page=10`
+          `https://api.github.com/repos/${repoFullName}/commits?author=${username}&per_page=10`
         );
         if (commitsRes.ok) {
           const commitsData = await commitsRes.json();
