@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 import { Answers } from "./scoring";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -143,7 +149,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  const reset = () => setProfileState(defaultProfile);
+  const reset = () => {
+    setProfileState(defaultProfile);
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("careerscope_profile");
+    }
+  };
 
   return (
     <AppContext.Provider value={{ profile, setProfile, reset }}>

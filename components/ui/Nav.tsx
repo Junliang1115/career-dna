@@ -15,6 +15,7 @@ export default function Nav() {
   const pathname = usePathname();
   const { user, loading, signOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
+  const { profile } = useApp();
   const [mounted, setMounted] = useState(false);
   const { profile } = useApp();
 
@@ -25,6 +26,11 @@ export default function Nav() {
       ? { href: "/talent", label: "Talent" }
       : { href: "/map", label: "Career" },
   ];
+
+  const isEmployer = profile.role === 'employer';
+  const baseLinks = isEmployer
+    ? [{ href: "/", label: "Home" }, { href: "/employer", label: "Talent Pool" }]
+    : [{ href: "/", label: "Home" }, { href: "/map", label: "Career" }];
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setMounted(true));

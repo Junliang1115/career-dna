@@ -4,20 +4,21 @@ import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useApp } from "@/lib/context";
 import { universities } from "@/lib/universities";
-import { ChevronRight, ChevronLeft, Check, Upload, FileText, Trash2, X } from "lucide-react";
+import {
+  ChevronRight,
+  ChevronLeft,
+  Check,
+  Upload,
+  FileText,
+  Trash2,
+  X,
+} from "lucide-react";
 import { extractTextFromFile, parseResumeWithLLM } from "@/lib/resumeParser";
 
 type DegreeLevel = "bachelor" | "master" | "phd" | "";
 type Step = "role" | "uni" | "degree" | "major" | "resume" | "employer-info";
 
-
-const CANDIDATE_STEPS: Step[] = [
-  "role",
-  "uni",
-  "degree",
-  "major",
-  "resume",
-];
+const CANDIDATE_STEPS: Step[] = ["role", "uni", "degree", "major", "resume"];
 const EMPLOYER_STEPS: Step[] = ["role", "employer-info"];
 const ACCENT = "#2D6A4F";
 
@@ -35,21 +36,22 @@ const DEGREE_OPTIONS: { value: DegreeLevel; label: string; desc: string }[] = [
   { value: "phd", label: "PhD / Doctorate", desc: "Research — 3 to 5+ years" },
 ];
 
+// Custom inline SVG icons because the installed lucide-react package does not export Github/Linkedin
+
 export default function OnboardingPage() {
   const router = useRouter();
   const { profile, setProfile } = useApp();
 
   const [step, setStep] = useState<Step>("role");
-  const [selectedRole, setSelectedRole] = useState<"candidate" | "employer" | "">(
-    (profile.role as "candidate" | "employer") || "",
-  );
+  const [selectedRole, setSelectedRole] = useState<
+    "candidate" | "employer" | ""
+  >((profile.role as "candidate" | "employer") || "");
   const [selectedUni, setSelectedUni] = useState(profile.university || "");
   const [selectedDegree, setSelectedDegree] = useState<DegreeLevel>(
     profile.degree || "",
   );
   const [selectedMajor, setSelectedMajor] = useState(profile.major || "");
   const [transcript, setTranscript] = useState<File | null>(
-
     profile.transcriptFile,
   );
 
@@ -114,9 +116,18 @@ export default function OnboardingPage() {
 
       // Merge parsed details into unified profile context
       setProfile({
-        skills: Array.from(new Set([...(profile.skills || []), ...parsed.skills])),
-        certifications: Array.from(new Set([...(profile.certifications || []), ...parsed.certifications])),
-        awards: Array.from(new Set([...(profile.awards || []), ...parsed.awards])),
+        skills: Array.from(
+          new Set([...(profile.skills || []), ...parsed.skills]),
+        ),
+        certifications: Array.from(
+          new Set([
+            ...(profile.certifications || []),
+            ...parsed.certifications,
+          ]),
+        ),
+        awards: Array.from(
+          new Set([...(profile.awards || []), ...parsed.awards]),
+        ),
         workExperience: [
           ...(profile.workExperience || []),
           ...parsed.workExperience.filter(
@@ -281,7 +292,8 @@ export default function OnboardingPage() {
             {step === "degree" &&
               "This helps us filter opportunities at the right level."}
             {step === "major" && `${selectedUni} — select your field of study.`}
-            {step === "resume" && "We'll auto-extract your skills, experience, and projects to match you with top careers."}
+            {step === "resume" &&
+              "We'll auto-extract your skills, experience, and projects to match you with top careers."}
           </p>
         </div>
 
@@ -294,8 +306,18 @@ export default function OnboardingPage() {
                 label: "I'm a Student",
                 desc: "Discover my career type, explore fields, and find my path.",
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
                   </svg>
                 ),
               },
@@ -304,20 +326,37 @@ export default function OnboardingPage() {
                 label: "I'm an Employer",
                 desc: "Find talent that fits your company's needs.",
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                    <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+                    <line x1="12" y1="12" x2="12" y2="16" />
+                    <line x1="10" y1="14" x2="14" y2="14" />
                   </svg>
                 ),
               },
             ].map((opt) => (
               <button
                 key={opt.value}
-                onClick={() => setSelectedRole(opt.value as "candidate" | "employer")}
+                onClick={() =>
+                  setSelectedRole(opt.value as "candidate" | "employer")
+                }
                 style={{
                   padding: "16px",
                   borderRadius: 10,
                   border: `2px solid ${selectedRole === opt.value ? ACCENT : "var(--border)"}`,
-                  background: selectedRole === opt.value ? "rgba(45,106,79,0.06)" : "transparent",
+                  background:
+                    selectedRole === opt.value
+                      ? "rgba(45,106,79,0.06)"
+                      : "transparent",
                   textAlign: "left",
                   cursor: "pointer",
                   display: "flex",
@@ -326,11 +365,31 @@ export default function OnboardingPage() {
                   transition: "all 0.12s",
                 }}
               >
-                <div style={{ width: 40, height: 40, borderRadius: 8, background: "var(--surface)", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", color: ACCENT, flexShrink: 0 }}>
+                <div
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: 8,
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: ACCENT,
+                    flexShrink: 0,
+                  }}
+                >
                   {opt.icon}
                 </div>
                 <div>
-                  <p style={{ fontSize: 15, fontWeight: 600, color: "var(--text)", marginBottom: 2 }}>
+                  <p
+                    style={{
+                      fontSize: 15,
+                      fontWeight: 600,
+                      color: "var(--text)",
+                      marginBottom: 2,
+                    }}
+                  >
                     {opt.label}
                   </p>
                   <p style={{ fontSize: 13, color: "var(--text-secondary)" }}>
@@ -338,7 +397,10 @@ export default function OnboardingPage() {
                   </p>
                 </div>
                 {selectedRole === opt.value && (
-                  <Check size={16} style={{ color: ACCENT, marginLeft: "auto", flexShrink: 0 }} />
+                  <Check
+                    size={16}
+                    style={{ color: ACCENT, marginLeft: "auto", flexShrink: 0 }}
+                  />
                 )}
               </button>
             ))}
@@ -511,7 +573,9 @@ export default function OnboardingPage() {
                   >
                     {parseMessage}
                   </span>
-                  <span style={{ fontSize: 13, color: ACCENT, fontWeight: 700 }}>
+                  <span
+                    style={{ fontSize: 13, color: ACCENT, fontWeight: 700 }}
+                  >
                     {parseProgress}%
                   </span>
                 </div>
@@ -643,8 +707,13 @@ export default function OnboardingPage() {
                       display: "flex",
                       transition: "background 0.15s",
                     }}
-                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.05)"}
-                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = "transparent"}
+                    onMouseOver={(e) =>
+                      (e.currentTarget.style.backgroundColor =
+                        "rgba(0,0,0,0.05)")
+                    }
+                    onMouseOut={(e) =>
+                      (e.currentTarget.style.backgroundColor = "transparent")
+                    }
                   >
                     <Trash2 size={16} />
                   </button>
@@ -679,7 +748,8 @@ export default function OnboardingPage() {
                 onDragOver={(e) => {
                   e.preventDefault();
                   e.currentTarget.style.borderColor = ACCENT;
-                  e.currentTarget.style.backgroundColor = "rgba(45,106,79,0.02)";
+                  e.currentTarget.style.backgroundColor =
+                    "rgba(45,106,79,0.02)";
                 }}
                 onDragLeave={(e) => {
                   e.preventDefault();
@@ -710,24 +780,27 @@ export default function OnboardingPage() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = ACCENT;
-                  e.currentTarget.style.backgroundColor = "rgba(45,106,79,0.02)";
+                  e.currentTarget.style.backgroundColor =
+                    "rgba(45,106,79,0.02)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = "var(--border)";
                   e.currentTarget.style.backgroundColor = "transparent";
                 }}
               >
-                <div style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: "50%",
-                  background: "rgba(45,106,79,0.08)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: ACCENT,
-                  marginBottom: 4
-                }}>
+                <div
+                  style={{
+                    width: 48,
+                    height: 48,
+                    borderRadius: "50%",
+                    background: "rgba(45,106,79,0.08)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: ACCENT,
+                    marginBottom: 4,
+                  }}
+                >
                   <Upload size={22} />
                 </div>
                 <span
@@ -746,7 +819,6 @@ export default function OnboardingPage() {
             )}
           </div>
         )}
-
 
         {/* ── Actions ──────────────────────────────────────── */}
         <div
