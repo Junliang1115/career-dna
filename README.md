@@ -18,11 +18,12 @@ An advanced SVG-based visualization engine displaying tech fields, roles, and sk
   - **Owned Skills**: Automatically highlights skills the user has acquired (from profile or courses) with a solid high-contrast green diamond/rectangle and vibrant border.
   - **Floating Tooltips**: Hovering fields, position dots, or skills reveals percentage matches, owned badges, and role requirements in glassmorphic cards.
 
-### 2. Personality Quiz & DISC-RIASEC Alignment
+### 2. Resume Upload & Personality Quiz
 
-- **48-Question Assessment**: Evaluates the user's preferences, yielding detailed DISC-RIASEC behavioral scores.
+- **Resume Upload & Extraction**: Upload PDF/image resumes before the quiz to automatically extract profile details (skills, projects, experience) using OCR and parser.
+- **30-Question Assessment**: Evaluates the user's preferences, yielding detailed DISC-RIASEC behavioral scores.
 - **AI Archetype Summaries**: Generates high-fidelity summaries describing why the user is a strong fit for their top matching CS roles.
-- **Comprehensive Data Export**: Commits the user's completed results (DISC scores, raw answers, AI paragraphs, university, and course data) directly into a standardized `profile.json` export.
+- **Comprehensive Data Export**: Commits the user's completed results (DISC scores, raw answers, AI paragraphs, university, and course data) directly into a standardized `profile.json` export and Firestore.
 
 ### 3. Student Profile & Skill Management
 
@@ -49,10 +50,11 @@ An advanced SVG-based visualization engine displaying tech fields, roles, and sk
 
 ## 🛠️ Technology Stack
 
-- **Framework**: Next.js 15+ (App Router, Turbopack, React 19)
+- **Framework**: Next.js 16 (App Router, Turbopack, React 19)
+- **Authentication**: Firebase Authentication
+- **Database/Storage**: Cloud Firestore & File-system serialization (`api/save-profile`)
 - **Styling**: Tailwind CSS & custom styled-components / inline CSS styles
 - **Icons**: Lucide React
-- **Database/Storage**: File-system serialization (`api/save-profile`)
 
 ---
 
@@ -61,12 +63,12 @@ An advanced SVG-based visualization engine displaying tech fields, roles, and sk
 ```markdown
 ├── app/
 │ ├── api/save-profile/ # Route to commit profile data to JSON
-│ ├── onboarding/ # University, Major, and Course onboarding flow
-│ ├── quiz/ # 48-question DISC-RIASEC quiz screen
+│ ├── onboarding/ # University, Major, and Course onboarding flow (with Resume Upload)
+│ ├── quiz/ # 30-question DISC-RIASEC quiz screen
 │ ├── results/ # Quiz result analysis and career matches
 │ ├── profile/ # Student dashboard with editable profile data
 │ ├── map/ # Multi-level SVG career field map & chat simulator
-│ ├── employer/ # Employer dashboard with Talent Pool Map
+│ ├── talent/ # Employer dashboard with Radar-style Talent Pool Map
 │ ├── globals.css # Core color tokens and dark-mode CSS styles
 │ └── layout.tsx # Root layout and theme shell wrapper
 │
