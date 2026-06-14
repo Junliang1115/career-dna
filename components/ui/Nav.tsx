@@ -17,20 +17,17 @@ export default function Nav() {
   const { theme, toggleTheme } = useTheme();
   const { profile } = useApp();
   const [mounted, setMounted] = useState(false);
-  const { profile } = useApp();
 
   const isEmployer = mounted && profile?.role === "employer";
-  const baseLinks = [
-    { href: "/", label: "Home" },
-    isEmployer
-      ? { href: "/talent", label: "Talent" }
-      : { href: "/map", label: "Career" },
-  ];
-
-  const isEmployer = profile.role === 'employer';
   const baseLinks = isEmployer
-    ? [{ href: "/", label: "Home" }, { href: "/employer", label: "Talent Pool" }]
-    : [{ href: "/", label: "Home" }, { href: "/map", label: "Career" }];
+    ? [
+        { href: "/", label: "Home" },
+        { href: "/talent", label: "Talent Pool" },
+      ]
+    : [
+        { href: "/", label: "Home" },
+        { href: "/map", label: "Career" },
+      ];
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setMounted(true));
