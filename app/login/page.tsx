@@ -66,7 +66,7 @@ export default function LoginPage() {
       alignItems: 'center',
       justifyContent: 'center',
       padding: '40px 24px',
-      background: '#FAF9F7',
+      background: 'var(--surface)',
     }}>
       <div style={{
         width: '100%',
@@ -77,7 +77,7 @@ export default function LoginPage() {
           <h1 style={{
             fontSize: 28,
             fontWeight: 400,
-            color: '#111111',
+            color: 'var(--text)',
             marginBottom: 8,
             fontFamily: "'Newsreader', 'Instrument Serif', Georgia, serif",
           }}>
@@ -85,7 +85,7 @@ export default function LoginPage() {
           </h1>
           <p style={{
             fontSize: 14,
-            color: '#787774',
+            color: 'var(--text-secondary)',
           }}>
             Sign in to continue to Career DNA
           </p>
@@ -94,7 +94,7 @@ export default function LoginPage() {
         {/* Form Card */}
         <div className="card" style={{
           padding: 32,
-          background: '#FFFFFF',
+          background: 'var(--bg)',
         }}>
           <button
             type="button"
@@ -109,22 +109,23 @@ export default function LoginPage() {
               padding: '12px 20px',
               marginBottom: 16,
               borderRadius: 999,
-              border: '1px solid #EAEAEA',
-              background: '#FFFFFF',
-              color: '#111111',
+              border: '1px solid var(--border)',
+              background: 'var(--bg)',
+              color: 'var(--text)',
               cursor: loading || googleLoading ? 'not-allowed' : 'pointer',
               fontSize: 14,
               fontWeight: 500,
+              transition: 'all 0.15s',
             }}
           >
-            <span style={{ fontSize: 16 }}>G</span>
+            <span style={{ fontSize: 16, fontWeight: 700 }}>G</span>
             {googleLoading ? 'Signing in with Google...' : 'Continue with Google'}
           </button>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-            <div style={{ height: 1, flex: 1, background: '#EAEAEA' }} />
-            <span style={{ fontSize: 12, color: '#787774' }}>or</span>
-            <div style={{ height: 1, flex: 1, background: '#EAEAEA' }} />
+            <div style={{ height: 1, flex: 1, background: 'var(--border)' }} />
+            <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>or</span>
+            <div style={{ height: 1, flex: 1, background: 'var(--border)' }} />
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -134,7 +135,7 @@ export default function LoginPage() {
                 display: 'block',
                 fontSize: 12,
                 fontWeight: 500,
-                color: '#787774',
+                color: 'var(--text-secondary)',
                 marginBottom: 8,
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
@@ -151,16 +152,16 @@ export default function LoginPage() {
                   width: '100%',
                   padding: '10px 0',
                   border: 'none',
-                  borderBottom: '1px solid #EAEAEA',
+                  borderBottom: '1px solid var(--border)',
                   background: 'transparent',
                   fontSize: 15,
                   fontFamily: 'inherit',
-                  color: '#111111',
+                  color: 'var(--text)',
                   outline: 'none',
                   transition: 'border-color 0.15s',
                 }}
-                onFocus={(e) => e.target.style.borderBottomColor = '#2D6A4F'}
-                onBlur={(e) => e.target.style.borderBottomColor = '#EAEAEA'}
+                onFocus={(e) => e.target.style.borderBottomColor = 'var(--accent-green)'}
+                onBlur={(e) => e.target.style.borderBottomColor = 'var(--border)'}
               />
             </div>
 
@@ -170,7 +171,7 @@ export default function LoginPage() {
                 display: 'block',
                 fontSize: 12,
                 fontWeight: 500,
-                color: '#787774',
+                color: 'var(--text-secondary)',
                 marginBottom: 8,
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
@@ -187,16 +188,16 @@ export default function LoginPage() {
                   width: '100%',
                   padding: '10px 0',
                   border: 'none',
-                  borderBottom: '1px solid #EAEAEA',
+                  borderBottom: '1px solid var(--border)',
                   background: 'transparent',
                   fontSize: 15,
                   fontFamily: 'inherit',
-                  color: '#111111',
+                  color: 'var(--text)',
                   outline: 'none',
                   transition: 'border-color 0.15s',
                 }}
-                onFocus={(e) => e.target.style.borderBottomColor = '#2D6A4F'}
-                onBlur={(e) => e.target.style.borderBottomColor = '#EAEAEA'}
+                onFocus={(e) => e.target.style.borderBottomColor = 'var(--accent-green)'}
+                onBlur={(e) => e.target.style.borderBottomColor = 'var(--border)'}
               />
             </div>
 
@@ -204,11 +205,12 @@ export default function LoginPage() {
             {error && (
               <div style={{
                 padding: '10px 12px',
-                background: '#FDEBEC',
+                background: 'var(--accent-red-subtle)',
+                border: '1px solid var(--accent-red-border)',
                 borderRadius: 6,
                 marginBottom: 16,
                 fontSize: 13,
-                color: '#C1453A',
+                color: 'var(--accent-red)',
               }}>
                 {error}
               </div>
@@ -222,7 +224,8 @@ export default function LoginPage() {
               style={{
                 width: '100%',
                 padding: '12px 20px',
-                background: loading ? '#999' : '#2D6A4F',
+                background: loading ? 'var(--text-tertiary)' : 'var(--accent-green)',
+                color: 'white',
                 cursor: loading ? 'not-allowed' : 'pointer',
               }}
             >
@@ -236,11 +239,11 @@ export default function LoginPage() {
           textAlign: 'center',
           marginTop: 24,
           fontSize: 14,
-          color: '#787774',
+          color: 'var(--text-secondary)',
         }}>
           Don&apos;t have an account?{' '}
           <Link href="/signup" style={{
-            color: '#2D6A4F',
+            color: 'var(--accent-green)',
             fontWeight: 500,
           }}>
             Create one
