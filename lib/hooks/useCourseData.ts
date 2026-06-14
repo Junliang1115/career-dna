@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import courseData from '@/scripts/courseData.json';
 
 // ── Types ───────────────────────────────────────────────────────────────────
@@ -31,18 +30,6 @@ export interface University {
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
-
-export function getAllUniqueCourses(): string[] {
-  const coursesSet = new Set<string>();
-  courseData.universities.forEach((uni) => {
-    uni.programs.forEach((prog) => {
-      prog.courses.forEach((course) => {
-        coursesSet.add(course.name);
-      });
-    });
-  });
-  return Array.from(coursesSet).sort();
-}
 
 export function getCoursesForUniversity(universityName: string, majorName?: string): string[] {
   if (!universityName) return [];
@@ -88,66 +75,4 @@ export function getCoursesForUniversity(universityName: string, majorName?: stri
     });
   });
   return Array.from(coursesSet).sort();
-}
-
-// ── Hook ─────────────────────────────────────────────────────────────────────
-
-export function useCourseData() {
-  const [universities, setUniversities] = useState<University[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    try {
-      setUniversities(courseData.universities as any[] as University[]);
-    } catch (err) {
-      console.error('Failed to load local course data:', err);
-      setError('Failed to load course data');
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  return { universities, loading, error };
-}
-
-// ── Helper hooks ──────────────────────────────────────────────────────────────
-
-export function useUniversity(id: string) {
-  const { universities, loading, error } = useCourseData();
-  return {
-    university: universities.find((u) => u.universityId === id) ?? null,
-    loading,
-    error,
-  };
-}
-
-export function useCourseByCategory() {
-  const { universities, loading, error } = useCourseData();
-
-  const byCategory = universities.reduce<
-    Record<string, { name: string; count: number; universities: string[] }[]>
-  >((acc) => {
-    universities.forEach((uni) => {
-      uni.programs.forEach((prog) => {
-        prog.courses.forEach((course) => {
-          if (!acc[course.category]) acc[course.category] = [];
-          const existing = acc[course.category].find((c) => c.name === course.name);
-          if (existing && !existing.universities.includes(uni.universityName)) {
-            existing.universities.push(uni.universityName);
-            existing.count++;
-          } else if (!existing) {
-            acc[course.category].push({
-              name: course.name,
-              count: 1,
-              universities: [uni.universityName],
-            });
-          }
-        });
-      });
-    });
-    return acc;
-  }, {});
-
-  return { byCategory, loading, error };
 }

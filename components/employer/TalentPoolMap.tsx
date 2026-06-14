@@ -3,7 +3,6 @@ import { useState, useRef, useCallback, useEffect, useMemo } from "react";
 import {
   MockCandidate,
   MockJobDescription,
-  TOP_N,
   CANVAS_SIZE,
   CENTER,
   SCALE,
@@ -88,7 +87,6 @@ export default function TalentPoolMap({
     const dist = 1.25 * Math.pow(1.0 - scoreFraction, 1.25) + 0.16;
     return dist * SCALE * zoom;
   };
-  const topIds = new Set(topCandidates.map((c) => c.id));
 
   const scoreColor = (score: number) => {
     if (score >= 90) return "#2D6A4F";
@@ -381,7 +379,6 @@ export default function TalentPoolMap({
 
           {/* Candidate nodes */}
           {candidates.map((candidate) => {
-            const isTop = topIds.has(candidate.id);
             const isActive =
               candidate.id === selectedCandidateId || candidate.id === hovered;
             const isHovered = candidate.id === hovered;

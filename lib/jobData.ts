@@ -1,11 +1,8 @@
 import { careerFields, positionsByField } from './careerTaxonomy';
 import {
   careerArchetypes,
-  riasecDescriptions,
-  discDescriptions,
   type RIASECType,
   type DISCType,
-  type CareerArchetype,
 } from './questions';
 
 export type DemandLevel = 'Rare' | 'Competitive' | 'Oversaturated';
@@ -314,23 +311,6 @@ function fuzzyMatch(skill: string, list: string[]): boolean {
   return list.some(s => s.toLowerCase().includes(skillLower) || skillLower.includes(s.toLowerCase()));
 }
 
-function fuzzyTitleMatch(jobTitle: string, archetypeJob: string): boolean {
-  const a = jobTitle.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
-  const b = archetypeJob.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
-  // Exact match
-  if (a === b) return true;
-  // One contains the other
-  if (a.includes(b) || b.includes(a)) return true;
-  // Word overlap — count shared significant words
-  const wordsA = new Set(a.split(/\s+/).filter(w => w.length > 2));
-  const wordsB = new Set(b.split(/\s+/).filter(w => w.length > 2));
-  let shared = 0;
-  for (const w of wordsA) {
-    if (wordsB.has(w)) shared++;
-  }
-  return shared >= 2 || (shared >= 1 && Math.min(wordsA.size, wordsB.size) <= 2);
-}
-
 // ─── Archetype field → taxonomy field mapping ───────────────────────────────
 
 // Maps v5 archetype field names → taxonomy field labels (or cluster names)
@@ -347,31 +327,6 @@ const archetypeFieldToTaxonomy: Record<string, string[]> = {
   'Technical Writing': ['Technical Writing'],
   'Mobile Development': ['Mobile Engineering'],
 };
-
-function archetypeFieldMatchesJob(archetypeFields: string[], jobFieldLabel: string, jobCluster: string): { exact: boolean; partial: boolean } {
-  for (const af of archetypeFields) {
-    const taxFields = archetypeFieldToTaxonomy[af];
-    if (taxFields && taxFields.some(tf => tf === jobFieldLabel)) {
-      return { exact: true, partial: false };
-    }
-  }
-  // Partial: cluster-level match
-  const clusterToArchetypeField: Record<string, string[]> = {
-    engineering: ['Software Engineering'],
-    data: ['Data Science', 'AI / Machine Learning'],
-    infrastructure: ['Cloud Engineering', 'DevOps'],
-    security: ['Cybersecurity'],
-    design: ['UI/UX Design'],
-    product: ['Product Management'],
-    science: ['AI / Machine Learning', 'Data Science'],
-    emerging: ['Software Engineering'],
-  };
-  const clusterFields = clusterToArchetypeField[jobCluster] || [];
-  if (clusterFields.some(cf => archetypeFields.includes(cf))) {
-    return { exact: false, partial: true };
-  }
-  return { exact: false, partial: false };
-}
 
 // ─── Job Matching Interface & Scoring ───────────────────────────────────────
 
@@ -423,8 +378,8 @@ export function calculateJobMatches(
   type: string,
   userSkills: string[],
   userCourses: string[],
-  riasecScores?: Record<RIASECType, number>,
-  discScores?: Record<DISCType, number>,
+  _riasecScores?: Record<RIASECType, number>,
+  _discScores?: Record<DISCType, number>,
 ): JobMatch[] {
   // Resolve archetype
   let archetype = careerArchetypes[type];

@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────
-// CareerScope — Scoring (v5)
-// Aligned with questions_v5_final.ts (RIASEC + DISC model)
+// CareerScope — Scoring 
+// Aligned with questions_final.ts (RIASEC + DISC model)
 //
 // Backward-compatible surface kept:
 //   calculateScore, scoreToType, getDimensionPercents, Score, Answers
@@ -33,9 +33,9 @@ export {
 // ─────────────────────────────────────────────────────────────
 // Answers type
 //
-// v5: key = question id, value = selected option TEXT string
+// key = question id, value = selected option TEXT string
 // (The old format used a numeric point value 0-4; that model is
-//  no longer used — the v5 quiz picks a typed option, not a
+//  no longer used — the quiz picks a typed option, not a
 //  Likert rating.)
 // ─────────────────────────────────────────────────────────────
 export type Answers = Record<number, string>;
@@ -72,7 +72,7 @@ export function calculateScore(answers: Answers): Score {
 }
 
 // ─────────────────────────────────────────────────────────────
-// scoreToType — returns the full v5 career type string
+// scoreToType — returns the full career type string
 // e.g. "D-R", "C-I", "I-A"
 // (Previously returned a 3-letter Holland code; callers that
 //  only need the archetype key should use this value directly.)
@@ -101,7 +101,7 @@ export interface DimensionPercent {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Max Possible Scores for v5 Questions
+// Max Possible Scores for Questions
 // ─────────────────────────────────────────────────────────────
 export const RIASEC_MAX = {
   R: 17,
@@ -184,7 +184,7 @@ export function getDimensionPercents(score: Score): DimensionPercent[] {
 // Completion helpers
 // ─────────────────────────────────────────────────────────────
 
-/** Total questions in the v5 assessment (18 RIASEC + 12 DISC) */
+/** Total questions in the assessment (18 RIASEC + 12 DISC) */
 export const TOTAL_QUESTIONS = riasecQuestions.length + discQuestions.length;
 
 /** How many questions the user has answered */
@@ -258,7 +258,7 @@ export function getDISCPercents(discScores: Record<'D' | 'I' | 'S' | 'C', number
   });
 }
 
-interface V5Result {
+interface Result {
   riasecScores: Record<string, number>;
   discScores: Record<string, number>;
   dominantRIASEC: string;
@@ -266,7 +266,7 @@ interface V5Result {
   careerType: string;
 }
 
-export function generateAiSummary(type: string, result: V5Result, answers: Answers) {
+export function generateAiSummary(type: string, result: Result, _answers: Answers) {
   const arch = getArchetype(type);
 
   // Dominant descriptions
@@ -295,7 +295,6 @@ export function generateAiSummary(type: string, result: V5Result, answers: Answe
   const weakestRIASEC = riasecEntries[riasecEntries.length - 1];
   const weakestName = riasecDescriptions[weakestRIASEC[0] as keyof typeof riasecDescriptions]?.name || weakestRIASEC[0];
   const weakestSummary = riasecDescriptions[weakestRIASEC[0] as keyof typeof riasecDescriptions]?.summary || '';
-  const weakestMax = RIASEC_MAX[weakestRIASEC[0] as keyof typeof RIASEC_MAX] || 3;
 
   const growthParagraph = `💡 Growth Recommendation: Your lowest RIASEC dimension is ${weakestName}. To expand your professional range, consider exploring opportunities that develop your ${weakestName.toLowerCase()} instincts. ${weakestSummary.replace('You are energised by', 'This means developing comfort with')}`;
 

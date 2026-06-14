@@ -1,7 +1,7 @@
 // Legacy file — field graph now generated from careerTaxonomy.ts
 // This file kept for backwards compatibility; map page uses careerTaxonomy.ts directly
 
-import { careerFields, CareerField } from './careerTaxonomy';
+import { careerFields } from './careerTaxonomy';
 
 // Circular layout — 37 nodes in 2 concentric rings organized by cluster
 // ViewBox: 1000 x 520, center at (500, 260)

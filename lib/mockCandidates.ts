@@ -30,29 +30,8 @@ export interface MockJobDescription {
   requiredSkills: string[];
 }
 
-// Generate stable pseudo-random positions
-function seededRandom(seed: number): () => number {
-  let s = seed;
-  return () => {
-    s = (s * 1664525 + 1013904223) & 0xffffffff;
-    return (s >>> 0) / 0xffffffff;
-  };
-}
 
-const rand = seededRandom(42);
 
-function randBetween(min: number, max: number, r: () => number): number {
-  return min + r() * (max - min);
-}
-
-const mbtiPositions: Record<string, [number, number]> = {
-  'INTJ': [-0.8, 0.6], 'INTP': [-0.9, 0.3], 'ENTJ': [-0.6, 0.8],
-  'ENTP': [-0.5, 0.7], 'INFJ': [0.3, 0.8],  'INFP': [0.4, 0.6],
-  'ENFJ': [0.5, 0.9],  'ENFP': [0.6, 0.7], 'ISTJ': [-0.7, -0.3],
-  'ISFJ': [0.2, -0.5], 'ESTJ': [-0.4, -0.4],'ESFJ': [0.5, -0.3],
-  'ISTP': [-0.6, 0.1], 'ISFP': [0.3, -0.1], 'ESTP': [-0.3, 0.2],
-  'ESFP': [0.5, 0.1],
-};
 
 export const mockJobs: MockJobDescription[] = [
   {

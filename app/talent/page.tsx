@@ -1394,10 +1394,3 @@ export default function EmployerPage() {
   );
 }
 
-function scoreColor(score: number): string {
-  if (score >= 90) return "#2D6A4F";
-  if (score >= 80) return "#40916C";
-  if (score >= 70) return "#74C69D";
-  if (score >= 60) return "#B7E4C7";
-  return "#D8F3DC";
-}

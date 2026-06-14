@@ -55,19 +55,7 @@ export default function OnboardingPage() {
     profile.transcriptFile,
   );
 
-  // LinkedIn / GitHub Social Links State
-  const [linkedin, setLinkedin] = useState(profile.linkedin || "");
-  const [linkedinInput, setLinkedinInput] = useState("");
-  const [github, setGithub] = useState(profile.github || "");
-  const [githubInput, setGithubInput] = useState("");
-  const [githubError, setGithubError] = useState("");
-  const [isVerifyingGithub, setIsVerifyingGithub] = useState(false);
 
-  // Employer onboarding fields
-  const [companyName, setCompanyName] = useState(profile.companyName || "");
-  const [industry, setIndustry] = useState(profile.industry || "");
-  const [companySize, setCompanySize] = useState(profile.companySize || "");
-  const [hiringFor, setHiringFor] = useState(profile.hiringFor || "");
 
   const fileRef = useRef<HTMLInputElement>(null);
   const steps = profile.role === "employer" ? EMPLOYER_STEPS : CANDIDATE_STEPS;
@@ -216,7 +204,11 @@ export default function OnboardingPage() {
     if (selectedUni) setProfile({ university: selectedUni });
     if (selectedDegree) setProfile({ degree: selectedDegree });
     if (selectedMajor) setProfile({ major: selectedMajor });
-    setProfile({ transcriptFile: transcript, linkedin, github });
+    setProfile({
+      transcriptFile: transcript,
+      linkedin: profile.linkedin || "",
+      github: profile.github || "",
+    });
     router.push("/profile");
   };
 

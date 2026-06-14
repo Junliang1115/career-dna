@@ -6,14 +6,9 @@ import { useAuth } from "@/lib/auth-context";
 import { useTheme } from "@/lib/theme-context";
 import { useApp } from "@/lib/context";
 
-const ACCENT = "#2D6A4F";
-
-// Nav links shown after sign-up (when user is logged in)
-const authLinks: { href: string; label: string }[] = [];
-
 export default function Nav() {
   const pathname = usePathname();
-  const { user, loading, signOut } = useAuth();
+  const { user, loading } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const { profile } = useApp();
   const [mounted, setMounted] = useState(false);
@@ -108,30 +103,7 @@ export default function Nav() {
             </Link>
           ))}
 
-          {/* Auth-required links — shown when logged in */}
-          {!loading &&
-            mounted &&
-            user &&
-            authLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                style={{
-                  padding: "5px 10px",
-                  borderRadius: 4,
-                  fontSize: 13,
-                  fontWeight: pathname === link.href ? 600 : 400,
-                  color:
-                    pathname === link.href
-                      ? "var(--text)"
-                      : "var(--text-secondary)",
-                  textDecoration: "none",
-                  transition: "all 0.12s",
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
+
 
           {/* Theme toggle */}
           {mounted && (

@@ -131,7 +131,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setProfileState((prev) => {
       const updated = { ...prev, ...p };
       if (typeof window !== "undefined") {
-        const { transcriptFile, ...serializable } = updated;
+        const serializable: Partial<UserProfile> = { ...updated };
+        delete serializable.transcriptFile;
         localStorage.setItem(
           "careerscope_profile",
           JSON.stringify(serializable),
