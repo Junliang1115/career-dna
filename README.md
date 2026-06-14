@@ -1,60 +1,129 @@
-# CareerScope
+# 🚀 CareerScope: Interactive CS Career Matcher & Talent Hub
 
-CareerScope is a Next.js app for exploring CS career paths with an interactive map, quiz, and job matching flow.
+CareerScope is a premium Next.js web application designed to help Computer Science students explore specialized career paths, simulate day-to-day work scenarios using an AI career simulator, and connect with top employers via a radar-style talent matching pool.
 
-## Run
+---
+
+## 🌟 Core Features
+
+### 1. Interactive Career Field Map (Multi-Level SVG Visualization)
+
+An advanced SVG-based visualization engine displaying tech fields, roles, and skills:
+
+- **Level 0 (Global Fields)**: Explore main CS fields (e.g., Software Engineering, Data & AI). High-fit fields ($\ge 90\%$ match) display a dashed green pulsing ring.
+- **Level 1 (Specialized Roles & Skills)**: Drill down into a specific field:
+  - **Semantic Label Zooming**: Sub-roles and bridge skills fade in dynamically at $\ge 1.6\times$ zoom.
+  - **Force-Directed Collision Resolution**: Runs a relaxation loop to push overlapping nodes apart, ensuring clean layouts.
+  - **Interactive Focus Highlight**: Hovering/clicking a node dims unrelated elements (opacity `0.18`) and highlights connector paths.
+  - **Owned Skills**: Automatically highlights skills the user has acquired (from profile or courses) with a solid high-contrast green diamond/rectangle and vibrant border.
+  - **Floating Tooltips**: Hovering fields, position dots, or skills reveals percentage matches, owned badges, and role requirements in glassmorphic cards.
+
+### 2. Personality Quiz & DISC-RIASEC Alignment
+
+- **48-Question Assessment**: Evaluates the user's preferences, yielding detailed DISC-RIASEC behavioral scores.
+- **AI Archetype Summaries**: Generates high-fidelity summaries describing why the user is a strong fit for their top matching CS roles.
+- **Comprehensive Data Export**: Commits the user's completed results (DISC scores, raw answers, AI paragraphs, university, and course data) directly into a standardized `profile.json` export.
+
+### 3. Student Profile & Skill Management
+
+- **Responsive Profile Views**: Manage education, manual/imported GitHub projects, and skills.
+- **Dual-State Skill Section**:
+  - _Saved State_: Renders a vertical stack of the user's top 5 skills, complete with proficiency level progress bars.
+  - _Edit State_: Displays skills as a single horizontal row of removable chips. Overflow is hidden, and an inline "See More" toggle button expands the list to wrap naturally.
+- **Smart Modification Tracking**: The "Save Changes" footer bar appears dynamically only when unsaved profile changes are detected, displaying a "Saved!" alert upon completion.
+
+### 4. Chat-Integrated AI Career Simulator
+
+- **Unified Conversation Thread**: Access chat logs and simulations directly in the sidebar.
+- **Experience the Job 🚀**: Select this chip to start a multi-step interactive simulation. The user encounters real-world role scenarios (e.g., system outages, model training trade-offs), chooses options, and receives immediate AI feedback.
+
+### 5. Talent Pool Map (Employer Portal)
+
+- **Blueprint Grid Pattern**: Designed with a technical blueprint aesthetic.
+- **Concentric Radar Rings**: Places candidate nodes radially based on their match percentages, with concentric helper rings (`90%`, `80%`, `70%`, `60%`).
+- **Central JD Node**: Styled as layered concentric green diamonds.
+- **Focus Highlighting**: Hovering/selecting a candidate path dynamically highlights connection lines and dims other candidates.
+- **Candidate Profile Popups**: Floating modal showing Linkedin/Github profiles and DISC-RIASEC personality badges.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Framework**: Next.js 15+ (App Router, Turbopack, React 19)
+- **Styling**: Tailwind CSS & custom styled-components / inline CSS styles
+- **Icons**: Lucide React
+- **Database/Storage**: File-system serialization (`api/save-profile`)
+
+---
+
+## 📂 Codebase Directory Structure
+
+```markdown
+├── app/
+│ ├── api/save-profile/ # Route to commit profile data to JSON
+│ ├── onboarding/ # University, Major, and Course onboarding flow
+│ ├── quiz/ # 48-question DISC-RIASEC quiz screen
+│ ├── results/ # Quiz result analysis and career matches
+│ ├── profile/ # Student dashboard with editable profile data
+│ ├── map/ # Multi-level SVG career field map & chat simulator
+│ ├── employer/ # Employer dashboard with Talent Pool Map
+│ ├── globals.css # Core color tokens and dark-mode CSS styles
+│ └── layout.tsx # Root layout and theme shell wrapper
+│
+├── components/
+│ ├── employer/
+│ │ ├── TalentPoolMap.tsx # Radar mapping of matched candidates
+│ │ └── ShortlistPanel.tsx # Side-by-side matching candidate sidebar
+│ ├── map/
+│ │ ├── FieldVectorMap.tsx # Compact vector map component
+│ │ └── AnimatedBackground.tsx
+│ ├── home/
+│ │ └── DotField.tsx # Landing page interactive backdrop grid
+│ └── ui/
+│ └── Nav.tsx # Global site header navbar
+│
+└── lib/
+├── scoring.ts # DISC-RIASEC math, matching rules, and AI descriptions
+├── jobScenarios.ts # AI Career Simulator scenarios
+├── jobData.ts # Career profiles, taxonomy, and match formulas
+├── context.tsx # Global state context (Profile and Quiz states)
+└── mockCandidates.ts # Matched candidates generator for Employer page
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Installation
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+### 2. Run Locally
+
+Start the local development server:
+
+```bash
 npm run dev
 ```
 
-Open `http://localhost:3000` in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-## Code Map
+### 3. Production Build
 
-### App routes
+Build the project for production:
 
-- [app/page.tsx](app/page.tsx) - Landing page entry.
-- [app/layout.tsx](app/layout.tsx) - Root layout, fonts, providers, and navigation shell.
-- [app/globals.css](app/globals.css) - Global CSS variables and base theme styles.
-- [app/onboarding/page.tsx](app/onboarding/page.tsx) - University, major, and course selection flow.
-- [app/quiz/page.tsx](app/quiz/page.tsx) - MBTI-style career quiz screen.
-- [app/results/page.tsx](app/results/page.tsx) - Result summary and career type reveal.
-- [app/profile/page.tsx](app/profile/page.tsx) - Saved user profile and selections.
-- [app/map/page.tsx](app/map/page.tsx) - Main career map with drill-down levels, skill nodes, and related-job links.
+```bash
+npm run build
+```
 
-### Components
+---
 
-- [components/ui/Nav.tsx](components/ui/Nav.tsx) - Top navigation used across the app.
-- [components/map/FieldVectorMap.tsx](components/map/FieldVectorMap.tsx) - Compact field graph used for career exploration and job cards.
-- [components/map/AnimatedBackground.tsx](components/map/AnimatedBackground.tsx) - Decorative animated background layer.
+## 📝 Developer Guidelines
 
-### Data and logic
-
-- [lib/context.tsx](lib/context.tsx) - Global app state provider for profile and quiz data.
-- [lib/types.ts](lib/types.ts) - Shared TypeScript types for the app.
-- [lib/questions.ts](lib/questions.ts) - Quiz question bank and answer options.
-- [lib/scoring.ts](lib/scoring.ts) - Quiz scoring and career type calculation.
-- [lib/jobData.ts](lib/jobData.ts) - Curated job dataset, job metadata, and type matching helpers.
-- [lib/fieldGraph.ts](lib/fieldGraph.ts) - Career field nodes, edges, and type-to-field mapping.
-- [lib/universities.ts](lib/universities.ts) - University and course catalog data.
-
-### Config
-
-- [next.config.ts](next.config.ts) - Next.js configuration.
-- [postcss.config.mjs](postcss.config.mjs) - PostCSS setup for Tailwind.
-- [eslint.config.mjs](eslint.config.mjs) - ESLint rules.
-- [tsconfig.json](tsconfig.json) - TypeScript configuration.
-
-## Suggested edit order
-
-1. Update data in `lib/` first.
-2. Adjust page flow in `app/`.
-3. Refine shared UI in `components/`.
-4. Run `npm run build` before demoing.
-
-## Notes
-
-- The project is designed to stay explainable and demo-friendly.
-- If you add a new route or major feature, add a one-line entry here so the file map stays current.
+1.  **Data Updates**: Add or modify careers, skills, or taxonomy in `lib/jobData.ts` and `lib/careerTaxonomy.ts`.
+2.  **Layout Scaling**: When modifying the SVG map, check `app/map/page.tsx` zoom compensations to ensure labels and strokes scale appropriately.
+3.  **UI Consistency**: Ensure all cards use standard CSS custom variables for surface borders (`var(--border)`) and backgrounds (`var(--surface)`).
