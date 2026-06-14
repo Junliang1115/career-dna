@@ -7,7 +7,7 @@ const protectedRoutes = ['/profile', '/map', '/quiz', '/results'];
 // Routes that should skip authentication (no auth needed)
 const publicRoutes = ['/login', '/signup', '/onboarding', '/'];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Check if the current path is a protected route
@@ -23,7 +23,7 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// Configure which routes the middleware runs on
+// Configure which routes the proxy runs on
 export const config = {
   matcher: [
     /*
