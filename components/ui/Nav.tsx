@@ -4,14 +4,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { useTheme } from "@/lib/theme-context";
+import { useApp } from "@/lib/context";
 
 const ACCENT = "#2D6A4F";
-
-// Nav links shown to everyone
-const baseLinks = [
-  { href: "/", label: "Home" },
-  { href: "/map", label: "Career" },
-];
 
 // Nav links shown after sign-up (when user is logged in)
 const authLinks: { href: string; label: string }[] = [];
@@ -21,6 +16,15 @@ export default function Nav() {
   const { user, loading, signOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { profile } = useApp();
+
+  const isEmployer = mounted && profile?.role === "employer";
+  const baseLinks = [
+    { href: "/", label: "Home" },
+    isEmployer
+      ? { href: "/talent", label: "Talent" }
+      : { href: "/map", label: "Career" },
+  ];
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setMounted(true));
@@ -60,7 +64,7 @@ export default function Nav() {
           }}
         >
           <img
-            src="/logo.svg"
+            src="/logo.png"
             alt="Career DNA"
             width={24}
             height={24}

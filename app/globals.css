@@ -19,7 +19,10 @@
   --accent-green-subtle: rgba(45,106,79,0.1);
   --accent-green-border: rgba(45,106,79,0.25);
   --accent-red: #C1453A;
+  --accent-red-subtle: rgba(193, 69, 58, 0.08);
+  --accent-red-border: rgba(193, 69, 58, 0.25);
   --accent-blue: #2563EB;
+  --accent-blue-subtle: rgba(37, 99, 235, 0.08);
   --radius: 6px;
   --radius-sm: 4px;
   --nav-bg: rgba(255, 255, 255, 0.92);
@@ -41,7 +44,10 @@
   --accent-green-subtle: rgba(76, 175, 122, 0.12);
   --accent-green-border: rgba(76, 175, 122, 0.3);
   --accent-red: #E06055;
+  --accent-red-subtle: rgba(224, 96, 85, 0.12);
+  --accent-red-border: rgba(224, 96, 85, 0.3);
   --accent-blue: #4A8AEF;
+  --accent-blue-subtle: rgba(74, 138, 239, 0.12);
   --nav-bg: rgba(14, 14, 14, 0.92);
   --toggle-bg: #2E2E2E;
   --toggle-knob: #F0EFEC;
@@ -223,13 +229,15 @@ h1, h2, h3, h4 {
 }
 
 .tag-green {
-  background: #EDF3EC;
+  background: var(--accent-green-subtle);
   color: var(--accent-green);
+  border: 1px solid var(--accent-green-border);
 }
 
 .tag-red {
-  background: #FDEBEC;
+  background: var(--accent-red-subtle);
   color: var(--accent-red);
+  border: 1px solid var(--accent-red-border);
 }
 
 .tag-muted {

@@ -9,6 +9,9 @@ import AuthLoader from './auth-loader';
 export const metadata: Metadata = {
   title: 'Career DNA — Discover Your Career Type',
   description: 'MBTI-style career intelligence for Malaysian university students',
+  icons: {
+    icon: '/logo.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
