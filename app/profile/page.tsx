@@ -209,6 +209,10 @@ export default function ProfilePage() {
         return merged;
       });
 
+      if (parsed.cgpa !== undefined && parsed.cgpa !== null) {
+        setCgpa(String(parsed.cgpa));
+      }
+
       // Construct a nice summary message of what was parsed
       const summaryParts = [];
       if (parsed.skills.length > 0)
@@ -221,6 +225,8 @@ export default function ProfilePage() {
         summaryParts.push(`${parsed.projects.length} projects`);
       if (parsed.awards.length > 0)
         summaryParts.push(`${parsed.awards.length} awards`);
+      if (parsed.cgpa !== undefined && parsed.cgpa !== null)
+        summaryParts.push(`CGPA: ${parsed.cgpa.toFixed(2)}`);
 
       if (summaryParts.length > 0) {
         setParsedSummary(
@@ -246,6 +252,7 @@ export default function ProfilePage() {
 
   const [uni, setUni] = useState(profile.university);
   const [major, setMajor] = useState(profile.major);
+  const [cgpa, setCgpa] = useState(profile.cgpa !== undefined ? String(profile.cgpa) : "");
   const [courses, setCourses] = useState<string[]>(profile.courses);
   const [transcript, setTranscript] = useState<File | null>(
     profile.transcriptFile,
@@ -307,6 +314,8 @@ export default function ProfilePage() {
   const hasChanges = useMemo(() => {
     if (uni !== profile.university) return true;
     if (major !== profile.major) return true;
+    const normalizedCgpa = profile.cgpa !== undefined ? String(profile.cgpa) : "";
+    if (cgpa !== normalizedCgpa) return true;
     if (linkedin !== profile.linkedin) return true;
     if (github !== profile.github) return true;
     if (transcript !== profile.transcriptFile) return true;
@@ -448,6 +457,7 @@ export default function ProfilePage() {
     if (profile) {
       setUni(profile.university || "");
       setMajor(profile.major || "");
+      setCgpa(profile.cgpa !== undefined ? String(profile.cgpa) : "");
       setCourses(profile.courses || []);
       setSkills(profile.skills || []);
       setCertifications(profile.certifications || []);
@@ -800,6 +810,7 @@ export default function ProfilePage() {
     const profileData = {
       university: uni,
       major,
+      cgpa: cgpa ? parseFloat(cgpa) : undefined,
       courses,
       skills,
       certifications,
@@ -817,6 +828,7 @@ export default function ProfilePage() {
     setProfile({
       university: uni,
       major,
+      cgpa: cgpa ? parseFloat(cgpa) : undefined,
       courses,
       transcriptFile: transcript,
       skills,
@@ -2462,6 +2474,21 @@ export default function ProfilePage() {
                   </option>
                 ))}
               </select>
+              <input
+                type="text"
+                placeholder="CGPA (e.g. 3.82)"
+                value={cgpa}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (/^\d*\.?\d*$/.test(val)) {
+                    setCgpa(val);
+                  }
+                }}
+                style={{
+                  ...selectStyle,
+                  fontFamily: "inherit",
+                }}
+              />
             </div>
 
             {/* Course Composition Analysis – shown only when "View Details" is clicked */}

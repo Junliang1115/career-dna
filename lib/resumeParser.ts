@@ -110,6 +110,7 @@ export interface ParsedResume {
   workExperience: WorkExperience[];
   projects: Project[];
   awards: string[];
+  cgpa?: number | null;
 }
 
 export interface ParseProgress {
@@ -191,7 +192,8 @@ export async function parseResumeWithLLM(
     { "name": "Project Name", "description": "What it does / your contribution", "technologies": ["Tech1", "Tech2"] },
     ...
   ],
-  "awards": ["Award 1", "Award 2", ...]
+  "awards": ["Award 1", "Award 2", ...],
+  "cgpa": 3.82
 }
 
 Rules:
@@ -200,6 +202,7 @@ Rules:
 - workExperience: include company, role, duration, and a 1-2 sentence description
 - projects: include name, a brief description, and the technologies used
 - awards: include competition wins, scholarships, Dean's List, certificates of achievement
+- cgpa: extract the academic CGPA / GPA (usually a decimal between 0.0 and 4.0). If not found on the resume, return null.
 - If a section is empty, return an empty array []
 - Be specific with technology names (e.g. "React" not "JavaScript framework")
 
@@ -572,11 +575,21 @@ export function heuristicExtract(text: string): ParsedResume {
   if (currentWork) workExperience.push(currentWork);
   if (currentProject) projects.push(currentProject);
 
+  let extractedCgpa: number | null = null;
+  const cgpaMatch = text.match(/(?:cgpa|gpa)\s*(?:of)?\s*[:\-]?\s*([0-4]\.\d{1,2})/i);
+  if (cgpaMatch) {
+    const val = parseFloat(cgpaMatch[1]);
+    if (val >= 0 && val <= 4.0) {
+      extractedCgpa = val;
+    }
+  }
+
   return {
     skills: foundSkills,
     certifications,
     workExperience,
     projects,
     awards,
+    cgpa: extractedCgpa,
   };
 }

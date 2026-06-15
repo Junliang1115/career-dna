@@ -36,6 +36,7 @@ interface UserProfile {
   companyLocation?: string;
   companyPerks?: string[];
   // Resume OCR extracted fields
+  cgpa?: number;
   workExperience: WorkExperience[];
   projects: Project[];
   awards: string[];

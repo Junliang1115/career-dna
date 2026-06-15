@@ -1066,8 +1066,7 @@ export default function EmployerPage() {
                       marginBottom: 6,
                     }}
                   >
-                    🧠 Personality · {getCareerType(activeCandidate.mbti)} (
-                    {activeCandidate.mbti})
+                    🧠 Personality · {getCareerType(activeCandidate.mbti)}
                   </p>
                   <p
                     style={{

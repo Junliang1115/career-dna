@@ -136,6 +136,7 @@ export default function OnboardingPage() {
               ),
           ),
         ],
+        cgpa: parsed.cgpa !== undefined && parsed.cgpa !== null ? parsed.cgpa : profile.cgpa,
         transcriptFile: file,
       });
 
@@ -151,6 +152,8 @@ export default function OnboardingPage() {
         summaryParts.push(`${parsed.projects.length} projects`);
       if (parsed.awards.length > 0)
         summaryParts.push(`${parsed.awards.length} awards`);
+      if (parsed.cgpa !== undefined && parsed.cgpa !== null)
+        summaryParts.push(`CGPA: ${parsed.cgpa.toFixed(2)}`);
 
       if (summaryParts.length > 0) {
         setParsedSummary(
