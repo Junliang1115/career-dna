@@ -1,4 +1,4 @@
-# 🚀 CareerScope: Interactive CS Career Matcher & Talent Hub
+# 🚀 CareerDNA: Interactive CS Career Matcher & Talent Hub
 
 CareerScope is a premium Next.js web application designed to help Computer Science students explore specialized career paths, simulate day-to-day work scenarios using an AI career simulator, and connect with top employers via a radar-style talent matching pool.
 
@@ -25,7 +25,7 @@ An advanced SVG-based visualization engine displaying tech fields, roles, and sk
 - **AI Archetype Summaries**: Generates high-fidelity summaries describing why the user is a strong fit for their top matching CS roles.
 - **Comprehensive Data Export**: Commits the user's completed results (DISC scores, raw answers, AI paragraphs, university, and course data) directly into a standardized `profile.json` export and Firestore.
 
-### 3. Student Profile & Skill Management
+### 3. Candidate Profile & Skill Management
 
 - **Responsive Profile Views**: Manage education, manual/imported GitHub projects, and skills.
 - **Dual-State Skill Section**:
@@ -66,7 +66,7 @@ An advanced SVG-based visualization engine displaying tech fields, roles, and sk
 │ ├── onboarding/ # University, Major, and Course onboarding flow (with Resume Upload)
 │ ├── quiz/ # 30-question DISC-RIASEC quiz screen
 │ ├── results/ # Quiz result analysis and career matches
-│ ├── profile/ # Student dashboard with editable profile data
+│ ├── profile/ # Candidate dashboard with editable profile data
 │ ├── map/ # Multi-level SVG career field map & chat simulator
 │ ├── talent/ # Employer dashboard with Radar-style Talent Pool Map
 │ ├── globals.css # Core color tokens and dark-mode CSS styles
